@@ -1,3 +1,14 @@
+/*
+
+주의
+
+이 파일은 임시로 맹근 테스트용 소스입니다. 
+이대로 복붙하면 답없는 결과물 튀어나올 수 있으니 모쪼록 이거 그대로 갖다 쓰지 마시고 각주 잘 읽어가면서 진행해주세요
+안그러면 저도 어떻게 못합니다.
+
+*/
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const webcamElement = document.getElementById('webcam');
     const canvas1 = document.getElementById('canvas1');
