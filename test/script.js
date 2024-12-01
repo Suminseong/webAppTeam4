@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
     const canvasAreas = [
-        { x: 0, y: 0, width: 320, height: 240 }, // canvas1
-        { x: 160, y: 120, width: 320, height: 240 }, // canvas2
-        { x: 320, y: 240, width: 320, height: 240 }  // canvas3
+        { x: 0, y: 0, width: 1280, height: 720 }, // canvas1
+        { x: 0, y: 0, width: 1280, height: 720 }, // canvas2
+        { x: 0, y: 0, width: 1280, height: 720 }  // canvas3
     ];
 
     // 웹캠 시작
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             webcamElement.srcObject = stream;
-        } catch (err) {
+        } catch (err) { //웹캠 연결 없을 때 중단나는 것 예외처리
             console.error('Error accessing webcam:', err);
         }
     }
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const model = await tmImage.load(url + 'model.json', url + 'metadata.json');
             models.push(model);
         }
-        console.log('Models loaded');
+        console.log('Models loaded'); //몇 초 걸리긴 하는데, 그 동안 로딩 페이지 띄우면 될 듯
     }
 
     // 실시간 업데이트
