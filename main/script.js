@@ -21,10 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let models = [];
 
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
+    // 카메라 해상도에 따라 가변적이니까 하드웨어 폰캠 따라서 잘 노가다 뛰세요^^
     const canvasAreas = [
-        { x: 820, y: 330, width: 360, height: 360 }, // canvas1
-        { x: 880, y: 190, width: 360, height: 440 }, // canvas2
-        { x: 840, y: 720, width: 400, height: 300 }  // canvas3
+        { x: 0, y: 135, width: 360, height: 360 }, // canvas1
+        { x: 0, y: 70, width: 360, height: 440 }, // canvas2
+        { x: 0, y: 220, width: 400, height: 300 }  // canvas3
     ];
 
     // 웹캠 시작
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 0, 0, canvas1.width, canvas1.height      // 캔버스에 맞게 그리기
             );
             if (index === 0) ctx.filter = 'grayscale(0%)'; //1번 캔버스 필터
-            if (index === 1) ctx.filter = 'sepia(100%)'; //2번 캔버스 필터  
+            if (index === 1) ctx.filter = 'sepia(10%)'; //2번 캔버스 필터  
             if (index === 2) ctx.filter = 'grayscale(10%)'; //3번 캔버스 필터
         });
 
