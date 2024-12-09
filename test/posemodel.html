@@ -20,7 +20,9 @@
     </div>
 
     <script>
-        const URL = "https://teachablemachine.withgoogle.com/models/P02yfej5T/";
+        const URL = "https://teachablemachine.withgoogle.com/models/P02yfej5T/"; //모델 학습은 새로 해야 할 것으로 보인다 이말이외오옹
+
+
         let model, webcam, ctx, labelContainer, maxPredictions;
 
         let currentClass = ""; // 현재 분류값
@@ -29,7 +31,7 @@
         const targetHoldTime = 3000; // 3초 유지 시간
         const validationTime = 2000; // 2초 확인 시간
 
-        async function init() {
+        async function init() { //초기화 로직
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
 
@@ -52,7 +54,7 @@
                 labelContainer.appendChild(document.createElement("div"));
             }
 
-            // 몇몇ms 간격으로 업데이트
+            // 200ms 간격으로 업데이트해서 최적화
             setInterval(() => {
                 loop();
             }, 200);
@@ -63,11 +65,11 @@
             await predict();
         }
 
-        async function predict() {
+        async function predict() { //포즈 추정
             const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
             const predictions = await model.predict(posenetOutput);
 
-            let highestPrediction = { className: "", probability: 0 };
+            let highestPrediction = { className: "", probability: 0 }; 
 
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction = `${predictions[i].className}: ${predictions[i].probability.toFixed(2)}`;
@@ -93,7 +95,7 @@
             trackPose(highestPrediction.className);
             drawPose(pose);
 
-            // 허리-어깨-손목 각도 계산
+            // 허리-어깨-손목 각도 계산 -> 이부분이 영향을 줘야 하는데 왜 이대로 classification 안되는지 모르겠다!
             if (pose) {
                 const leftShoulderAngle = calculateAngle(pose.keypoints, "leftHip", "leftShoulder", "leftWrist");
                 const rightShoulderAngle = calculateAngle(pose.keypoints, "rightHip", "rightShoulder", "rightWrist");
