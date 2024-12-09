@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             canvas3.getContext('2d')
         ];
 
-        contexts.forEach((ctx, index) => {
+        contexts.forEach((ctx, index) => { //캔버스 1부터 차례로 그리고, 필터 넣고 뭐시기 등등
             const area = canvasAreas[index];
 
             // 지정된 범위를 잘라 캔버스에 그리기
