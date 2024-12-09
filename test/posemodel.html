@@ -23,6 +23,12 @@
         const URL = "https://teachablemachine.withgoogle.com/models/P02yfej5T/";
         let model, webcam, ctx, labelContainer, maxPredictions;
 
+        let currentClass = ""; // 현재 분류값
+        let classStartTime = null; // 특정 클래스 감지 시작 시간
+        let holdStartTime = null; // 유지 시작 시간
+        const targetHoldTime = 3000; // 3초 유지 시간
+        const validationTime = 2000; // 2초 확인 시간
+
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
@@ -46,10 +52,10 @@
                 labelContainer.appendChild(document.createElement("div"));
             }
 
-            // 500ms 간격으로 업데이트
+            // 몇몇ms 간격으로 업데이트
             setInterval(() => {
                 loop();
-            }, 500);
+            }, 200);
         }
 
         async function loop() {
@@ -84,6 +90,7 @@
                 currentClassElement.textContent = `현재 클래스: ${highestPrediction.className}`;
             }
 
+            trackPose(highestPrediction.className);
             drawPose(pose);
 
             // 허리-어깨-손목 각도 계산
@@ -94,6 +101,39 @@
                 document.getElementById("left-shoulder-angle").textContent = leftShoulderAngle.toFixed(2);
                 document.getElementById("right-shoulder-angle").textContent = rightShoulderAngle.toFixed(2);
             }
+        }
+
+        function trackPose(predictedClass) { //포즈 유지중인지 검사하는 코드
+            const currentTime = new Date().getTime();
+
+            if (predictedClass === currentClass) {
+                if (classStartTime === null) {
+                    classStartTime = currentTime;
+                }
+
+                // 2초 동안 특정 클래스를 유지했는지 확인
+                if (currentTime - classStartTime >= validationTime && holdStartTime === null) {
+                    holdStartTime = currentTime;
+                }
+
+                // 3초 유지 시간 체크
+                if (holdStartTime && currentTime - holdStartTime >= targetHoldTime) {
+                    console.log("complete!");
+                    resetTracking();
+                }
+            } else {
+                // 클래스가 바뀌면 초기화
+                if (holdStartTime) {
+                    console.log("바보허접~");
+                }
+                resetTracking();
+                currentClass = predictedClass;
+            }
+        }
+
+        function resetTracking() {
+            classStartTime = null;
+            holdStartTime = null;
         }
 
         function calculateAngle(keypoints, point1, point2, point3) {
