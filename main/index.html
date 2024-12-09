@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webcam with jQuery Action</title>
+    <title>Teachable Machine Kiosk</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        video,
-        canvas {
+        video, canvas {
             border: 1px solid black;
             margin: 10px;
         }
-
         .results {
             margin-top: 10px;
         }
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
     </style>
 </head>
-
 <body>
-    <h1>모델 동시 사용 테스트</h1>
+    <h1>Teachable Machine Kiosk</h1>
+    <div id="loading">모델을 로딩 중입니다. 잠시만 기다려 주세요...</div>
     <video id="webcam" autoplay playsinline width="1280" height="720"></video>
     <p class="results">shoes Result: <span id="result3">-</span></p>
     <p class="results">bag Result: <span id="result2">-</span></p>
     <p class="results">stick Result: <span id="result1">-</span></p>
     <div>
         <canvas id="canvas1" width="360" height="360"></canvas>
-        
-        <canvas id="canvas2" width="360" height="440"></canvas>
-        
+        <canvas id="canvas2" width="360" height="400"></canvas>
         <canvas id="canvas3" width="400" height="300"></canvas>
-        
     </div>
+    <button id="stop-classification">분류 정지 및 결과 확인</button>
     <script src="script.js"></script>
     <script src="action.js"></script>
 </body>
-
 </html>

@@ -3,6 +3,7 @@
 모델 웹앱에 구현
 
 */
+/*언어 바닐라 자바스크립트입니다*/
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,13 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let models = [];
+    let classificationInterval = 1000; // ms초마다 분류
+    let intervalId = null; // 분류 타이머 ID 들어갈 자리
+    let latestResults = { result1: '', result2: '', result3: '' }; // 마지막 분류 결과 저장
+
 
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
     // 카메라 해상도에 따라 가변적이니까 하드웨어 폰캠 따라서 잘 노가다 뛰세요^^
     const canvasAreas = [
-        { x: 0, y: 135, width: 360, height: 360 }, // canvas1
-        { x: 0, y: 70, width: 360, height: 440 }, // canvas2
-        { x: 0, y: 220, width: 400, height: 300 }  // canvas3
+        { x: 780, y: 305, width: 360, height: 360 }, // canvas1
+        { x: 780, y: 100, width: 360, height: 440 }, // canvas2
+        { x: 710, y: 700, width: 400, height: 300 }  // canvas3
     ];
 
     // 웹캠 시작
@@ -33,18 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             webcamElement.srcObject = stream;
-        } catch (err) { //웹캠 연결 없을 때 중단나는 것 예외처리
+        } catch (err) {
+            alert('웹캠에 접근할 수 없습니다. 웹캠을 확인하세요.');
             console.error('Error accessing webcam:', err);
         }
     }
 
     // 모델 로드
-    async function loadModels() {
+    async function loadModels() { //12.9 로딩 디스플레이 추가됨
+        document.getElementById('loading').style.display = 'block';
         for (const url of modelURLs) {
             const model = await tmImage.load(url + 'model.json', url + 'metadata.json');
             models.push(model);
         }
-        console.log('Models loaded'); //제안. 몇 초 걸리긴 하는데, 그 동안 로딩 페이지 띄우면 될 듯
+        document.getElementById('loading').style.display = 'none';
+        console.log('Models loaded');
     }
 
     // 실시간 업데이트
@@ -72,29 +80,89 @@ document.addEventListener('DOMContentLoaded', () => {
         classifyFrame(canvas1, models[0], 'result1');
         classifyFrame(canvas2, models[1], 'result2');
         classifyFrame(canvas3, models[2], 'result3');
-
-        requestAnimationFrame(updateAndClassify);
     }
 
     // 분류 수행
     async function classifyFrame(canvas, model, resultElementId) {
         const prediction = await model.predict(canvas);
-        console.log(prediction);
-
+        // console.log(prediction);
         // 가장 높은 확률의 클래스명 가져오기
         const highestPrediction = prediction.reduce((prev, current) =>
-            (prev.probability > current.probability) ? prev : current
+            (prev.probability > current.probability) ? prev : current // 저번의 중간 발표때 접하고 공부해봤던 삼항연산자
+        /*
+        
+        저 부분 혹시나 이해 못할까봐 부연설명을 붙이자면
+        
+        각 모델마다 class 분류를 할 때 확률 비교를 하지요? 이때, class1이 0.1, class2가 0.06, class3이 0.94라고 가정합시다.
+        일단, reduce라는 친구가 배열을 순환합니다. 이제 prev.probably(이전 확률)이 current.probably(지금거 확률)보다 큰지 비교하고요
+        맞으면 삼항연산자 뒤의 prev값을 뱉고, 틀리면 current 값을 뱉습니다. 단 한 줄의 논리연산으로 if문이나 case문을 대체하다니 완전럭키비키
+        
+        */
         );
 
         // 결과 HTML 업데이트
         document.getElementById(resultElementId).innerText = highestPrediction.className;
+
+        //결과 저장
+        latestResults[resultElementId] = highestPrediction.className;
+        console.log(`${resultElementId}: ${highestPrediction.className}`);
     }
+
+    function stopClassification() {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+            console.log('Classification stopped.');
+            console.log('Latest Results:', latestResults);
+
+            // 결과에 따른 페이지 이동 처리
+            handleResults(latestResults);
+        }
+    }
+
+    function handleResults(results) { //이미지 분류 결과에 따라 페이지 넘어가는 부분
+        const keyToLabel = { ///result1,2,3을 라벨링하고 긁어오게
+            result1: 'stick',
+            result2: 'bag',
+            result3: 'shoes'
+        };
+    
+        const pages = [];
+        const resultKeys = Object.keys(results);
+    
+        for (const key of resultKeys) {
+            const label = keyToLabel[key]; // 매핑 테이블에서 레이블 가져오기
+            const expectedFalse = `${label}-false`.trim().toLowerCase();
+            const currentValue = results[key].trim().toLowerCase();
+    
+            console.log(`Key: ${key}, Label: ${label}, Expected: ${expectedFalse}, Current: ${currentValue}`);
+            if (currentValue === 'nothing') {
+                console.log('인식에 문제가 발생했습니다. 오류페이지로 점프합니다.');
+                window.location.href = 'classify_error.html';
+                return;
+            } else if (currentValue === expectedFalse) {
+                console.log(`맞지 않는 키를 발견했습니다 ${key}`);
+                pages.push(`${label}_alert.html`);
+            }
+        }
+    
+        if (pages.length > 0) {
+            console.log('미착용 장비가 식별되었습니다');
+            window.startPageSequence(pages);
+        } else {
+            console.log('모두 참. 페이지 이동 없음.');
+        }
+    }
+    
+
+    document.getElementById('stop-classification').addEventListener('click', stopClassification);
+
 
     // 초기화
     async function init() {
         await startWebcam();
         await loadModels();
-        updateAndClassify();
+        intervalId = setInterval(updateAndClassify, classificationInterval);
     }
 
     init();
