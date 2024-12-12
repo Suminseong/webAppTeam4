@@ -11,6 +11,8 @@ $(document).ready(function () {
             window.location.href = nextPage + query; // 쿼리 매개변수 추가하여 이동
         } else {
             console.log("All alert pages displayed.");
+            location.href = '../index.html#4'
+
         }
     }
 

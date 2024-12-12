@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 지정된 범위를 잘라 캔버스에 그리기
             ctx.drawImage(
                 webcamElement,
-                area.x, area.y, area.width, area.height, 
+                area.x, area.y, area.width, area.height,
                 0, 0, canvas1.width, canvas1.height      // 캔버스에 맞게 그리기
             );
             if (index === 0) ctx.filter = 'grayscale(0%)'; //1번 캔버스 필터
@@ -90,15 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // 가장 높은 확률의 클래스명 가져오기
         const highestPrediction = prediction.reduce((prev, current) =>
             (prev.probability > current.probability) ? prev : current // 저번의 중간 발표때 접하고 공부해봤던 삼항연산자
-        /*
-        
-        저 부분 혹시나 이해 못할까봐 부연설명을 붙이자면
-        
-        각 모델마다 class 분류를 할 때 확률 비교를 하지요? 이때, class1이 0.1, class2가 0.06, class3이 0.94라고 가정합시다.
-        일단, reduce라는 친구가 배열을 순환합니다. 이제 prev.probably(이전 확률)이 current.probably(지금거 확률)보다 큰지 비교하고요
-        맞으면 삼항연산자 뒤의 prev값을 뱉고, 틀리면 current 값을 뱉습니다. 단 한 줄의 논리연산으로 if문이나 case문을 대체하다니 완전럭키비키
-        
-        */
+            /*
+            
+            저 부분 혹시나 이해 못할까봐 부연설명을 붙이자면
+            
+            각 모델마다 class 분류를 할 때 확률 비교를 하지요? 이때, class1이 0.1, class2가 0.06, class3이 0.94라고 가정합시다.
+            일단, reduce라는 친구가 배열을 순환합니다. 이제 prev.probably(이전 확률)이 current.probably(지금거 확률)보다 큰지 비교하고요
+            맞으면 삼항연산자 뒤의 prev값을 뱉고, 틀리면 current 값을 뱉습니다. 단 한 줄의 논리연산으로 if문이나 case문을 대체하다니 완전럭키비키
+            
+            */
         );
 
         // 결과 HTML 업데이트
@@ -126,15 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
             result2: 'bag',
             result3: 'shoes'
         };
-    
+
         const pages = [];
         const resultKeys = Object.keys(results);
-    
+
         for (const key of resultKeys) {
             const label = keyToLabel[key]; // 매핑 테이블에서 레이블 가져오기
             const expectedFalse = `${label}-false`.trim().toLowerCase();
             const currentValue = results[key].trim().toLowerCase();
-    
+
             console.log(`Key: ${key}, Label: ${label}, Expected: ${expectedFalse}, Current: ${currentValue}`);
             if (currentValue === 'nothing') {
                 console.log('인식에 문제가 발생했습니다. 오류페이지로 점프합니다.');
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pages.push(`animation/${label}_alert.html`);
             }
         }
-    
+
         if (pages.length > 0) {
             console.log('미착용 장비가 식별되었습니다');
             window.startPageSequence(pages);
@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function executeClassGear() {
     if (window.currentIndex !== 2) { // 특정 값이 아닐 때 실행 중지
         console.log("Execution stopped due to currentIndex condition.");
+        
         return;
     }
 
