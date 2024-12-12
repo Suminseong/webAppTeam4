@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const $sectionWrap = $(".section-wrap"); // 섹션 래퍼
     const sectionWidth = 1080; // 섹션 너비
-    let currentIndex = 0; // 현재 페이지 인덱스
+    window.currentIndex = 0; // 현재 페이지 인덱스, window로 전역변수 설정하여 모든 js가 읽을 수 있게
 
     // 체크하기 버튼 클릭 시
     $("#check-btn").on("click", function () {
