@@ -1620,3 +1620,14 @@ footer {
         transform: rotateX(0deg);
     }
 }
+
+.webdiv {
+    width: 920px;
+    height: 1100px;
+    margin-top: 350px;
+    border-radius: 24px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
