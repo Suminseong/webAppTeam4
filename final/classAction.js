@@ -19,7 +19,7 @@ $(document).ready(function () {
     // 페이지 이동 초기화
     window.startPageSequence = function (pages) {
         pageQueue = pages;
-        currentPageIndex = 0; // 초기화
+        currentPageIndex = 0; // 인덱스 초기화
         navigateToNextPage();
     };
 
