@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const $sectionWrap = $(".section-wrap"); // 섹션 래퍼
     const sectionWidth = 1080; // 섹션 너비
-    window.currentIndex = 0; // 현재 섹션 인덱스
+    let currentIndex = 0; // 현재 섹션 인덱스   
 
     // 섹션 이동 함수
     function moveToSection(index) {
