@@ -1253,6 +1253,37 @@ footer {
     margin-bottom: 24px;
 }
 
+.course-bottom{
+    width: 200px;
+    height: 102px;
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0px 6px 12px 0px #00000035;
+    z-index: 50;
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 1s all ease-in-out;
+    opacity: 0;
+}
+
+#course-level {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+#course-name {
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: -4%;
+}
+
 #conF-km {
     font-size: 24px;
     letter-spacing: -4%;

@@ -97,8 +97,8 @@ function updateStepUI(currentIndex) {
     } else if (currentIndex >= 5 && currentIndex <= 6) {
         // 5~6: 두 번째 단계 활성화
         $(".stepOn").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
+            "background-color": "#fff",
+            "color": "var(--main--color)",
         });
         $(".stepTw").css({
             "background-color": "var(--main--color)",
@@ -113,12 +113,12 @@ function updateStepUI(currentIndex) {
     } else if (currentIndex >= 7 && currentIndex < 15) {
         // 7~15: 세 번째 단계 활성화
         $(".stepOn").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
+            "background-color": "#fff",
+            "color": "var(--main--color)",
         });
         $(".stepTw").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
+            "background-color": "#fff",
+            "color": "var(--main--color)",
         });
         $(".stepTh").css({
             "background-color": "var(--main--color)",
@@ -134,16 +134,16 @@ function updateStepUI(currentIndex) {
     } else if (currentIndex === 15) {
         // 15: 네 번째 단계 활성화
         $(".stepOn").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
+            "background-color": "#fff",
+            "color": "var(--main--color)",
         });
         $(".stepTw").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
+            "background-color": "#fff",
+            "color": "var(--main--color)",
         });
         $(".stepTh").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
+            "background-color": "#fff",
+            "color": "var(--main--color)",
         });
         $(".stepFo").css({
             "background-color": "var(--main--color)",
@@ -251,8 +251,6 @@ $(window).on("hashchange", function () {
         $(".conF-icon").removeClass("course-action");
 
         // 텍스트와 이미지 변경 대상
-        const $conFKm = $("#conF-km");
-        const $conFImg = $("#conF-img");
 
         // 클릭한 버튼에 따라 관련 요소 업데이트
         if (this.id === "conF-Atype") {
@@ -261,24 +259,39 @@ $(window).on("hashchange", function () {
                 opacity: 1,
                 transition: "opacity 1s",
             });
-            $conFKm.html("10km (약 3시간 30분 소요)");
-            $conFImg.attr("src", "./Img/conG/seonjea.png");
+            $("#conF-km").html("10km (약 3시간 30분 소요)");
+            $("#conF-img").attr("src", "./Img/conG/seonjea.png");
+            $("#bottom-modal").css("opacity", "1");
+            $("#course-level").text("초급");
+            $("#course-level").css("color", "#4ABB74");
+            $("#course-name").text("선재산 코스");
+            $("#course-name").css("color", "#4ABB74");
         } else if (this.id === "conF-Btype") {
             $(this).addClass("course-action");
             $("#course-normal").addClass("course-action").css({
                 opacity: 1,
                 transition: "opacity 1s",
             });
-            $conFKm.html("4.4km (약 2시간 10분 소요)");
-            $conFImg.attr("src", "./Img/conG/dongdeasan.png");
+            $("#conF-km").html("4.4km (약 2시간 10분 소요)");
+            $("#conF-img").attr("src", "./Img/conG/dongdeasan.png");
+            $("#bottom-modal").css("opacity", "1");
+            $("#course-level").text("중급");
+            $("#course-level").css("color", "#4092D2");
+            $("#course-name").text("동대산 코스");
+            $("#course-name").css("color", "#4092D2");
         } else if (this.id === "conF-Ctype") {
             $(this).addClass("course-action");
             $("#course-hard").addClass("course-action").css({
                 opacity: 1,
                 transition: "opacity 1s",
             });
-            $conFKm.html("13.3km (약 7시간 소요)");
-            $conFImg.attr("src", "./Img/conG/sogum.png");
+            $("#conF-km").html("13.3km (약 7시간 소요)");
+            $("#conF-img").attr("src", "./Img/conG/sogum.png");
+            $("#bottom-modal").css("opacity", "1");
+            $("#course-level").text("상급");
+            $("#course-level").css("color", "#3F4BDA");
+            $("#course-name").text("소금강산 코스");
+            $("#course-name").css("color", "#3F4BDA");
         }
     });
 });
