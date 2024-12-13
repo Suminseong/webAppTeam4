@@ -1230,27 +1230,23 @@ footer {
     box-shadow: 0px 0px 12px #00000010;
 }
 
-#course-easy{
+.course-type{
     width: 100%;
     height: 100%;
     position: absolute;
-    animation: courseHover 2s ease-in-out 1 both;
-}
-#course-normal{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    animation: courseHover 2s ease-in-out 1 both;
-    z-index: 4;
 }
 
-#course-hard{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    animation: courseHover 2s ease-in-out 1 both;
+#course-easy {
+    opacity: 0;
 }
 
+#course-normal {
+    opacity: 0;
+}
+
+#course-hard {
+    opacity: 0;
+}
 
 @keyframes courseHover {
     0%{
@@ -1261,4 +1257,41 @@ footer {
         transform: translateY(-24px);
     }
     
+}
+
+.conF-icon {
+    background-color: initial;
+    cursor: pointer;
+    position: absolute;
+    z-index: 50;
+}
+
+.conF-icon p {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--main--color);
+}
+
+#conF-Atype {
+    
+    top: 31%;
+    
+}
+
+#conF-Btype {
+    left: 16%;
+    top: 39%;
+}
+
+#conF-Ctype {
+    right: 28%;
+    top: 31%;
+}
+
+.course-action {
+    animation: courseHover 2s ease-in-out 1 both;
 }
