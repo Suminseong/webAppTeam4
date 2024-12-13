@@ -115,7 +115,17 @@
                 <h4 class="con-sub-text">아래의 가이드에 맞춰 서주세요!<br>
                     잠시 뒤 장비 체크가 시작됩니다.</h4>
             </div>
-            
+            <div class="webcam">
+                <script src="classGear.js"></script>
+                <script src="classAction.js"></script>
+                <div id="loading">모델을 로딩 중입니다. 잠시만 기다려 주세요...</div>
+                <!-- Webcam element -->
+                <video id="webcam" autoplay playsinline style="width: 882px; height: 1154px; object-fit: cover;"></video>
+                <!-- Invisible canvases -->
+                <canvas id="canvas1" width="360" height="360" style="object-fit: cover;"></canvas>
+                <canvas id="canvas2" width="360" height="400" style="object-fit: cover;"></canvas>
+                <canvas id="canvas3" width="400" height="300" style="object-fit: cover;"></canvas>
+            </div>
         </section>
 
         <section id="conD">
