@@ -42,6 +42,7 @@ $(document).ready(function () {
     // 체크하기 버튼 클릭 시
     $("#check-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
+            moveToSection(currentIndex + 1);
         }
     });
 
