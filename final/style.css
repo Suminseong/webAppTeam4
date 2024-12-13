@@ -964,7 +964,7 @@ footer {
     }
 }
 #img5subC{
-    
+    z-index: 20;
     transform-origin: 50% 1710px;
     animation: i5subC 2.2s linear;
     transform: perspective(100px);
@@ -989,7 +989,10 @@ footer {
     }
 }
 #img6subC{
-    
+    position: absolute;
+    margin-left: -240px;
+    margin-bottom: 240px;
+    scale: 1.1;
     transform-origin: 50% 1710px;
     animation: i6subC 2.1s linear forwards;
     transform: perspective(100px);
