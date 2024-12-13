@@ -67,7 +67,7 @@ $(document).ready(function () {
 
             // 텍스트 및 이미지 업데이트
             $conFKm.html("10km (약 3시간 30분 소요)");
-            $conFImg.attr("src", "./Img/conF/seonjea.png");
+            $conFImg.attr("src", "./Img/conG/seonjea.png");
         } else if (this.id === "conF-Btype") {
             // B타입
             $(this).addClass("course-action");
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
             // 텍스트 및 이미지 업데이트
             $conFKm.html("4.4km (약 2시간 10분 소요)");
-            $conFImg.attr("src", "./Img/conF/dongdeasan.png");
+            $conFImg.attr("src", "./Img/conG/dongdeasan.png");
         } else if (this.id === "conF-Ctype") {
             // C타입
             $(this).addClass("course-action");
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
             // 텍스트 및 이미지 업데이트
             $conFKm.html("13.3km (약 7시간 소요)");
-            $conFImg.attr("src", "./Img/conF/sogum.png");
+            $conFImg.attr("src", "./Img/conG/sogum.png");
         }
     });
 

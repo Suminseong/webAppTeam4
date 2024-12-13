@@ -515,7 +515,9 @@ footer {
 
 
 #img1B{
-    
+    position: absolute;
+    margin-bottom: 140px;
+    scale: 1.1;
     transform-origin: 50% 1710px;
     animation: i1B 1.65s linear;
     transform: perspective(100px);
@@ -736,7 +738,9 @@ footer {
     }
 }
 #img6subA{
-    
+    position: absolute;
+    margin-bottom: 40px;
+    scale: 1.2;
     transform-origin: 50% 1710px;
     animation: i6subA 2.1s linear forwards;
     transform: perspective(100px);
@@ -1226,7 +1230,7 @@ footer {
     border-radius: 24px;
     background-color: #006039;
     position: relative;
-    background-image: url(./Img/conF/map.png);
+    background-image: url(./Img/conG/map.png);
     box-shadow: 0px 0px 12px #00000010;
 }
 
