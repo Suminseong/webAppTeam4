@@ -33,6 +33,25 @@ li {
     list-style: none;
 }
 
+/*우상단 동그라미들*/
+
+.step li {
+    background-color: #f0f0f0;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .step li.step-active {
+    background-color: var(--main--color);
+    color: #fff;
+  }
+  
+  .step li.step-inactive {
+    opacity: 0.5; 
+  }
+  
+  /*버튼*/
+
 button {
     border: none;
     cursor: pointer;
