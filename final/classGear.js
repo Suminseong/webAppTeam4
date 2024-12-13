@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             stopClassification(); // 분류 멈춤
             stopWebcam();         // 웹캠 멈춤
-        }, 5000); // 5초 뒤 실행
+        }, 500000); // 5초 뒤 실행
     }
 
     // 초기화
