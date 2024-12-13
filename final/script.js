@@ -22,23 +22,6 @@ $(document).ready(function () {
             $("#language-btn-wrap").css("display", "none");
             $("#undo-btn, #next-btn").css("display", "block");
         }
-
-        // Step 스타일 업데이트
-        $(".step li").each(function (i) {
-            // 모든 li 비활성화 초기화
-            $(this).removeClass("step-active").addClass("step-inactive");
-        });
-
-        // 범위에 따라 특정 li만 활성화
-        if (index >= 0 && index <= 4) {
-            $(".step li").eq(0).removeClass("step-inactive").addClass("step-active");
-        } else if (index >= 5 && index <= 10) {
-            $(".step li").eq(1).removeClass("step-inactive").addClass("step-active");
-        } else if (index >= 11 && index <= 13) {
-            $(".step li").eq(2).removeClass("step-inactive").addClass("step-active");
-        } else if (index >= 14 && index <= 15) {
-            $(".step li").eq(3).removeClass("step-inactive").addClass("step-active");
-        }
     }
 
     // 체크하기 버튼 클릭 시
@@ -79,6 +62,132 @@ $(document).ready(function () {
     } else {
         moveToSection(0); // 기본값
     }
+
+
+// **현재 섹션 인덱스 가져오기**
+function getCurrentIndex() {
+    const hash = window.location.hash.replace("#", "");
+    const index = parseInt(hash, 10);
+    if (!isNaN(index)) {
+        return index;
+    } else {
+        return 1; // 기본값은 1
+    }
+}
+
+// **UI 업데이트 함수**
+function updateStepUI(currentIndex) {
+
+    // 모든 li 스타일 초기화
+    $(".step li").css({
+        "background-color": "#fff",
+        "color": "var(--main--color)",
+    });
+
+    // currentIndex에 따라 스타일 및 텍스트 업데이트
+    if (currentIndex >= 1 && currentIndex <= 4) {
+        // 1~4: 첫 번째 단계 활성화
+        $(".stepOn").css({
+            "background-color": "var(--main--color)",
+            "color": "#fff",
+        });
+        $(".step-text").text("장비 체크");
+        $(".step-text").css("transform", "translateX(0px)");
+        $(".stepOn").text("1")
+    } else if (currentIndex >= 5 && currentIndex <= 6) {
+        // 5~6: 두 번째 단계 활성화
+        $(".stepOn").css({
+            "background-color": "#fff",
+            "color": "var(--main--color)",
+        });
+        $(".stepTw").css({
+            "background-color": "var(--main--color)",
+            "color": "#fff",
+        });
+        $(".step-text").text("코스 선택");
+        $(".step-text").css("transform", "translateX(80px)");
+        $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+        $(".stepOn span").css("fontSize", "32px");
+        $(".stepTw").text("2")
+
+    } else if (currentIndex >= 7 && currentIndex < 15) {
+        // 7~15: 세 번째 단계 활성화
+        $(".stepOn").css({
+            "background-color": "#fff",
+            "color": "var(--main--color)",
+        });
+        $(".stepTw").css({
+            "background-color": "#fff",
+            "color": "var(--main--color)",
+        });
+        $(".stepTh").css({
+            "background-color": "var(--main--color)",
+            "color": "#fff",
+        });
+        $(".step-text").text("자세 학습");
+        $(".step-text").css("transform", "translateX(160px)");
+        $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+        $(".stepOn span").css("fontSize", "32px");
+        $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+        $(".stepTw span").css("fontSize", "32px");
+        $(".stepTh").text("3")
+    } else if (currentIndex === 15) {
+        // 15: 네 번째 단계 활성화
+        $(".stepOn").css({
+            "background-color": "#fff",
+            "color": "var(--main--color)",
+        });
+        $(".stepTw").css({
+            "background-color": "#fff",
+            "color": "var(--main--color)",
+        });
+        $(".stepTh").css({
+            "background-color": "#fff",
+            "color": "var(--main--color)",
+        });
+        $(".stepFo").css({
+            "background-color": "var(--main--color)",
+            "color": "#fff",
+        });
+        $(".step-text").text("준비 완료");
+        $(".step-text").css("transform", "translateX(240px)");
+        $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+        $(".stepOn span").css("fontSize", "32px");
+        $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+        $(".stepTw span").css("fontSize", "32px");
+        $(".stepTh").html(`<span class="material-symbols-outlined">check_small</span>`)
+        $(".stepTh span").css("fontSize", "32px");
+        $(".stepFo").text("4")
+    }
+}
+
+// **해시 변경 시 호출되는 함수**
+function onHashChange() {
+    const currentIndex = getCurrentIndex();
+    updateStepUI(currentIndex);
+}
+
+// **초기화: 페이지 로드 시 실행**
+onHashChange();
+
+// **해시 변경 감지**
+$(window).on("hashchange", function () {
+    onHashChange();
+});
+
+
+    // **예시: 섹션 이동 함수 (필요에 따라 구현)**
+    // function moveToSection(index) {
+    //     // 섹션 이동 로직 구현
+    //     window.location.hash = `#${index}`; // 해시 업데이트
+    // }
+
+    // **예시: 버튼 클릭 시 섹션 이동 (필요에 따라 구현)**
+    // $("#next-btn").on("click", function () {
+    //     const currentIndex = getCurrentIndex();
+    //     moveToSection(currentIndex + 1);
+    // });
+
 
     // 언어별 텍스트 데이터
     const translations = {
@@ -142,8 +251,6 @@ $(document).ready(function () {
         $(".conF-icon").removeClass("course-action");
 
         // 텍스트와 이미지 변경 대상
-        const $conFKm = $("#conF-km");
-        const $conFImg = $("#conF-img");
 
         // 클릭한 버튼에 따라 관련 요소 업데이트
         if (this.id === "conF-Atype") {
@@ -152,24 +259,39 @@ $(document).ready(function () {
                 opacity: 1,
                 transition: "opacity 1s",
             });
-            $conFKm.html("10km (약 3시간 30분 소요)");
-            $conFImg.attr("src", "./Img/conG/seonjea.png");
+            $("#conF-km").html("10km (약 3시간 30분 소요)");
+            $("#conF-img").attr("src", "./Img/conG/seonjea.png");
+            $("#bottom-modal").css("opacity", "1");
+            $("#course-level").text("초급");
+            $("#course-level").css("color", "#4ABB74");
+            $("#course-name").text("선재산 코스");
+            $("#course-name").css("color", "#4ABB74");
         } else if (this.id === "conF-Btype") {
             $(this).addClass("course-action");
             $("#course-normal").addClass("course-action").css({
                 opacity: 1,
                 transition: "opacity 1s",
             });
-            $conFKm.html("4.4km (약 2시간 10분 소요)");
-            $conFImg.attr("src", "./Img/conG/dongdeasan.png");
+            $("#conF-km").html("4.4km (약 2시간 10분 소요)");
+            $("#conF-img").attr("src", "./Img/conG/dongdeasan.png");
+            $("#bottom-modal").css("opacity", "1");
+            $("#course-level").text("중급");
+            $("#course-level").css("color", "#4092D2");
+            $("#course-name").text("동대산 코스");
+            $("#course-name").css("color", "#4092D2");
         } else if (this.id === "conF-Ctype") {
             $(this).addClass("course-action");
             $("#course-hard").addClass("course-action").css({
                 opacity: 1,
                 transition: "opacity 1s",
             });
-            $conFKm.html("13.3km (약 7시간 소요)");
-            $conFImg.attr("src", "./Img/conG/sogum.png");
+            $("#conF-km").html("13.3km (약 7시간 소요)");
+            $("#conF-img").attr("src", "./Img/conG/sogum.png");
+            $("#bottom-modal").css("opacity", "1");
+            $("#course-level").text("상급");
+            $("#course-level").css("color", "#3F4BDA");
+            $("#course-name").text("소금강산 코스");
+            $("#course-name").css("color", "#3F4BDA");
         }
     });
 });

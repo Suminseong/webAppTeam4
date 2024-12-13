@@ -35,22 +35,45 @@ li {
 
 /*우상단 동그라미들*/
 
-.step li {
-    background-color: #f0f0f0;
-    color: #000;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .step li.step-active {
-    background-color: var(--main--color);
-    color: #fff;
-  }
-  
-  .step li.step-inactive {
-    opacity: 0.5; 
-  }
-  
-  /*버튼*/
+
+.step-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    margin-top: 32px;
+}
+
+.step-wrap ul {
+    display: flex;
+    gap: 36px;
+}
+
+.step-wrap li{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: var(--main--color);
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--main--color);
+}
+
+.step-text {
+    position: absolute;
+    right: 308px;
+    top: 84px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--main--color);
+    text-align: center;
+}
+
+/*버튼*/
 
 button {
     border: none;
@@ -331,42 +354,7 @@ footer {
     align-items: end;
 }
 
-.step-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 320px;
-    margin-top: 32px;
-}
 
-.step-wrap ul {
-    display: flex;
-    gap: 36px;
-}
-
-.step-wrap li{
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: #fff;
-    color: var(--main--color);
-    font-weight: 700;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--main--color);
-}
-
-.step-text {
-    position: absolute;
-    right: 308px;
-    top: 84px;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--main--color);
-    text-align: center;
-}
 
 /* 컨텐츠 전체 메인 텍스트 스타일 */
 .con-text-wrap{
@@ -1263,6 +1251,37 @@ footer {
     justify-content: center;
     margin-top: 360px;
     margin-bottom: 24px;
+}
+
+.course-bottom{
+    width: 200px;
+    height: 102px;
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0px 6px 12px 0px #00000035;
+    z-index: 50;
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 1s all ease-in-out;
+    opacity: 0;
+}
+
+#course-level {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+#course-name {
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: -4%;
 }
 
 #conF-km {
