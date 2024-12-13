@@ -25,18 +25,20 @@ $(document).ready(function () {
 
         // Step 스타일 업데이트
         $(".step li").each(function (i) {
-            if (i === index) {
-                $(this).css({
-                    "background-color": "var(--main--color)",
-                    color: "#fff",
-                });
-            } else {
-                $(this).css({
-                    "background-color": "",
-                    color: "",
-                });
-            }
+            // 모든 li 비활성화 초기화
+            $(this).removeClass("step-active").addClass("step-inactive");
         });
+
+        // 범위에 따라 특정 li만 활성화
+        if (index >= 0 && index <= 4) {
+            $(".step li").eq(0).removeClass("step-inactive").addClass("step-active");
+        } else if (index >= 5 && index <= 10) {
+            $(".step li").eq(1).removeClass("step-inactive").addClass("step-active");
+        } else if (index >= 11 && index <= 13) {
+            $(".step li").eq(2).removeClass("step-inactive").addClass("step-active");
+        } else if (index >= 14 && index <= 15) {
+            $(".step li").eq(3).removeClass("step-inactive").addClass("step-active");
+        }
     }
 
     // 체크하기 버튼 클릭 시

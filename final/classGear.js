@@ -143,10 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000); // 5초 뒤 실행
     }
 
+    let tmWork = 0
     // 초기화
     async function init() {
         if (window.currentIndex !== 2) {
             console.log(`Initialization stopped. currentIndex is ${window.currentIndex}`);
+            tmWork = 0
             return;
         }
         await loadModels();
