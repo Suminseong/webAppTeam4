@@ -24,7 +24,7 @@ $(document).ready(function () {
     };
 
     // 현재 페이지 복원
-    const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search); //링크에 현재 페이지 
     const queueParam = urlParams.get('queue');
     const indexParam = urlParams.get('index');
 
