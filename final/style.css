@@ -109,6 +109,8 @@ footer {
 
 .webcam video{
     margin-top: 350px;
+    border-radius: 24px;
+    overflow: hidden;
 }
 
 .webcam canvas {
