@@ -94,6 +94,30 @@ footer {
     z-index: 999;
 }
 
+/* TM 스타일 */
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+.webcam video{
+    margin-top: 350px;
+}
+
+.webcam canvas {
+    position: absolute;
+    top: 600px;
+    left: 600px;
+    z-index: -100000;
+}
+
 /* footer 버튼 스타일 */
 
 .footer-btn {
