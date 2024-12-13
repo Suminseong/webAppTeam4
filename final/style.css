@@ -158,8 +158,8 @@ footer {
 .webcam canvas {
     position: absolute;
     top: 600px;
-    left: 600px;
-    z-index: -100000;
+    /* left: 600px; */
+    z-index: 100000;
 }
 
 /* footer 버튼 스타일 */
