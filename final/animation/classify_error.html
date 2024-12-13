@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../classAction.js"></script>
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
+            font-weight: 200;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
+            font-weight: 100;
+            font-style: normal;
+        }
+        *{
+            margin: 0;
+            font-family: 'Pretendard-Regular';
+        }
+        .box{
+            width: 1080px;
+            height: 1920px;
+            border: solid 5px #000000;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            background-color: #FBF7EC;
+            border-radius: 30px;
+        }
+        .header{
+            width: 1080px;
+            height: 120px;
+            background-color: #ffffff;
+            font-size: 20px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            color: #006039;
+        }
+        .bottom{
+            width: 1080px;
+            height: 210px;
+            bottom: 0px;
+            position: absolute;
+            background-color: #ffffff;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            justify-content: center;
+        }
+        button{
+            width: 448px;
+            height: 132px;
+            border-radius: 52px;
+            font-size: 48px;
+            font-weight: 900;
+            background-color: #ffffff;
+            border: 3px solid;
+            border-color: #006039;
+        }
+        #btn1{
+            color: #006039;
+        }
+        #btn2{
+            background-color: #006039;
+            color: #ffffff;
+        }
+        .product{
+            margin: 108px 0 0 80px;
+        }
+        .product h1{
+            font-size: 80px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #006039;
+        }
+        .product p{
+            font-size: 52px;
+            font-weight: 400;
+            color: #323232;
+        }
+        .circle-progress::before{
+            content: "";
+            position: absolute;
+            height: 246px;
+            width: 246px;
+            border-radius: 50%;
+            background-color: #FBF7EC;
+        }
+        #lottie{
+            position: absolute;
+            left: -60px;
+            top: 500px;
+        }#check{
+            position: absolute;
+            margin: 490px 395px 0;
+            z-index: 1;
+            animation: check 0.4s ease-in-out;
+        }
+        @keyframes check{
+            0%{
+                transform: translate(28px, 20px);
+            }
+            30%{
+                transform: translate(-30px, -20px);
+            }
+            62%{
+                transform: translate(-14px, 18px);
+
+            }
+            86%{
+                transform: translate(14px, -12px);
+            }
+            100%{
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <div class="header">
+        <h1>국립공원공단</h1>
+    </div>
+    <div class="product">
+        <h1>신발이 부적합해요!</h1>
+        <p>가파르지 않은 산이여도 등산중에<br>슬리퍼나 구두를 신으면 위험해요!</p>
+    </div>
+
+    <img id="check" src="웹기초_이미지/x.svg">
+    
+    <div class="bottom">
+        <button id="btn1">이전</button>
+        <button id="btn2">다음</button>
+    </div>
+    </div>
+    
+</body>
+</html>
