@@ -252,7 +252,7 @@ $(window).on("hashchange", function () {
 
         // 텍스트와 이미지 변경 대상
 
-        // 클릭한 버튼에 따라 관련 요소 업데이트
+        // 클릭한 버튼에 따라 관련 요소 업데이트.
         if (this.id === "conF-Atype") {
             $(this).addClass("course-action");
             $("#course-easy").addClass("course-action").css({
