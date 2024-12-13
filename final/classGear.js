@@ -53,7 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         document.getElementById('loading').style.display = 'none';
         console.log('Models loaded');
-        startCountdown();
+        if (currentIndex == 2) {
+            startCountdown();
+        }
+        
     }
 
     // 실시간 업데이트
@@ -159,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             stopClassification(); // 분류 멈춤
             stopWebcam();         // 웹캠 멈춤
-        }, 500000); // 5초 뒤 실행
+        }, 5000); // 5초 뒤 실행
     }
 
     // 초기화
@@ -173,9 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function executeClassGear() {
-    if (window.currentIndex !== 2) { // 특정 값이 아닐 때 실행 중지
-        console.log("Execution stopped due to currentIndex condition.");
-        
+    if (window.currentIndex ==! 2) { // 특정 값이 아닐 때 실행 중지
+        console.log(`Execution stopped due to currentIndex condition. now index is ${window.currentIndex}`);
         return;
     }
 
