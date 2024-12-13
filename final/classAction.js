@@ -2,34 +2,43 @@ $(document).ready(function () {
     let pageQueue = [];
     let currentPageIndex = 0;
 
+    // 절대 경로 확인 및 변환
+    function ensureAbsolutePath(path) {
+        if (path.startsWith('/')) {
+            return path; // 이미 절대 경로
+        } else {
+            return `/final/animation/${path}`; // 상대 경로 변환
+        }
+    }
+
     // 다음 페이지로 이동
     function navigateToNextPage() {
         if (currentPageIndex < pageQueue.length) {
             const nextPage = pageQueue[currentPageIndex];
             currentPageIndex++;
-            const query = `?index=${currentPageIndex}&queue=${encodeURIComponent(JSON.stringify(pageQueue))}`; // URL에 alert 페이지 관련정보 저장후 뒷 페이지로 전달.
-            window.location.href = nextPage + query; // 쿼리 매개변수 추가하여 이동
+
+            const query = `?index=${currentPageIndex}&queue=${encodeURIComponent(JSON.stringify(pageQueue))}`;
+            window.location.href = nextPage + query;
         } else {
             console.log("All alert pages displayed.");
-            location.href = '../index.html#4'
-
+            location.href = '/final/index.html#4';
         }
     }
 
     // 페이지 이동 초기화
     window.startPageSequence = function (pages) {
-        pageQueue = pages;
-        currentPageIndex = 0; // 인덱스 초기화
+        pageQueue = pages.map(page => ensureAbsolutePath(page)); // 중복 방지 처리
+        currentPageIndex = 0;
         navigateToNextPage();
     };
 
     // 현재 페이지 복원
-    const urlParams = new URLSearchParams(window.location.search); //링크에 현재 페이지 
+    const urlParams = new URLSearchParams(window.location.search);
     const queueParam = urlParams.get('queue');
     const indexParam = urlParams.get('index');
 
     if (queueParam && indexParam) {
-        pageQueue = JSON.parse(decodeURIComponent(queueParam));
+        pageQueue = JSON.parse(decodeURIComponent(queueParam)).map(page => ensureAbsolutePath(page));
         currentPageIndex = parseInt(indexParam, 10) || 0;
         console.log(`Restored page queue: ${pageQueue}, current index: ${currentPageIndex}`);
     }

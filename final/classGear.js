@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalId = null; // 분류 타이머 ID 들어갈 자리
     let latestResults = { result1: '', result2: '', result3: '' }; // 마지막 분류 결과 저장
     let isClassified = 0; // 모델 실행 여부 플래그
-    let errorOccurred = 0;
+    let isModelActive = false;
 
 
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
@@ -48,48 +48,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 모델 로드
     async function loadModels() {
+        if (isModelActive == false) {
+            document.getElementById('loading').style.display = 'block';
+            for (const url of modelURLs) {
+                const model = await tmImage.load(url + 'model.json', url + 'metadata.json');
+                models.push(model);
+            }
+            document.getElementById('loading').style.display = 'none';
+            console.log('Models loaded');
+            isClassified = 0; // 모델이 실행되었음을 표시
+            startCountdown();
+            isModelActive = true;
+        }
         if (window.currentIndex !== 2 || isClassified === 1) {
             console.log(`Model loading skipped. currentIndex is ${window.currentIndex} or model already classified.`);
             return;
         }
-        document.getElementById('loading').style.display = 'block';
-        for (const url of modelURLs) {
-            const model = await tmImage.load(url + 'model.json', url + 'metadata.json');
-            models.push(model);
-        }
-        document.getElementById('loading').style.display = 'none';
-        console.log('Models loaded');
-        isClassified = 0; // 모델이 실행되었음을 표시
-        startCountdown();
     }
 
     // 실시간 업데이트
     function updateAndClassify() {
-        if (errorOccurred) {
-            console.log('Error detected previously. Stopping further classifications.');
-            stopClassification();
-            return;
-        }
-
-        if (window.currentIndex !== 2) {
-            console.log('Current index is not 2. Stopping classification.');
-            stopClassification();
-            return;
-        }
-
         const contexts = [
             canvas1.getContext('2d'),
             canvas2.getContext('2d'),
             canvas3.getContext('2d')
         ];
 
-        contexts.forEach((ctx, index) => {
+        contexts.forEach((ctx, index) => { //캔버스 1부터 차례로 그리고, 필터 넣고 뭐시기 등등
             const area = canvasAreas[index];
+
+            // 지정된 범위를 잘라 캔버스에 그리기
             ctx.drawImage(
                 webcamElement,
                 area.x, area.y, area.width, area.height,
-                0, 0, canvas1.width, canvas1.height
+                0, 0, canvas1.width, canvas1.height      // 캔버스에 맞게 그리기
             );
+            if (index === 0) ctx.filter = 'grayscale(0%)'; //1번 캔버스 필터
+            if (index === 1) ctx.filter = 'sepia(10%)'; //2번 캔버스 필터  
+            if (index === 2) ctx.filter = 'grayscale(10%)'; //3번 캔버스 필터
         });
 
         classifyFrame(canvas1, models[0], 'result1');
@@ -156,13 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             } else if (currentValue === expectedFalse) {
                 console.log(`맞지 않는 키를 발견했습니다 ${key}`);
-                pages.push(`animation/${label}_alert.html`);
+                pages.push(`${label}_alert.html`);
             }
         }
 
         if (pages.length > 0) {
             console.log('미착용 장비가 식별되었습니다');
-            window.startPageSequence(pages);
+            window.startPageSequence(pages);    
         } else {
             console.log('모두 참. 페이지 이동 없음.');
         }
@@ -173,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             stopClassification(); // 분류 멈춤
             stopWebcam();         // 웹캠 멈춤
-        }, 5000); // 5초 뒤 실행
+        }, 7000); // 7초 뒤 실행
     }
 
     // 초기화
@@ -186,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function executeClassGear() {
-    if (window.currentIndex ==! 2) { // 특정 값이 아닐 때 실행 중지
+    if (window.currentIndex == !2) { // 특정 값이 아닐 때 실행 중지
         console.log(`Execution stopped due to currentIndex condition. now index is ${window.currentIndex}`);
         return;
     }
