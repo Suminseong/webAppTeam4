@@ -132,4 +132,42 @@ $(document).ready(function () {
         $("#language-btn-wrap button").removeClass("active");
         $(this).addClass("active");
     });
+
+    // 코스 선택 기능
+    $(".conF-icon").on("click", function () {
+        // 기존 클래스 및 스타일 제거
+        $(".course-type").removeClass("course-action").css("opacity", 0);
+        $(".conF-icon").removeClass("course-action");
+
+        // 텍스트와 이미지 변경 대상
+        const $conFKm = $("#conF-km");
+        const $conFImg = $("#conF-img");
+
+        // 클릭한 버튼에 따라 관련 요소 업데이트
+        if (this.id === "conF-Atype") {
+            $(this).addClass("course-action");
+            $("#course-easy").addClass("course-action").css({
+                opacity: 1,
+                transition: "opacity 1s",
+            });
+            $conFKm.html("10km (약 3시간 30분 소요)");
+            $conFImg.attr("src", "./Img/conG/seonjea.png");
+        } else if (this.id === "conF-Btype") {
+            $(this).addClass("course-action");
+            $("#course-normal").addClass("course-action").css({
+                opacity: 1,
+                transition: "opacity 1s",
+            });
+            $conFKm.html("4.4km (약 2시간 10분 소요)");
+            $conFImg.attr("src", "./Img/conG/dongdeasan.png");
+        } else if (this.id === "conF-Ctype") {
+            $(this).addClass("course-action");
+            $("#course-hard").addClass("course-action").css({
+                opacity: 1,
+                transition: "opacity 1s",
+            });
+            $conFKm.html("13.3km (약 7시간 소요)");
+            $conFImg.attr("src", "./Img/conG/sogum.png");
+        }
+    });
 });
