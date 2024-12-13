@@ -171,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
         await loadModels();
         intervalId = setInterval(updateAndClassify, classificationInterval);
     }
-
     init();
 });
 
@@ -180,7 +179,6 @@ function executeClassGear() {
         console.log(`Execution stopped due to currentIndex condition. now index is ${window.currentIndex}`);
         return;
     }
-
     // 정상적으로 실행
     console.log("Executing classGear.js logic...");
 }
