@@ -35,6 +35,33 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 190, y: 250, width: 200, height: 260 }  // canvas3
     ];
 
+    if (window.currentIndex > 3) {
+        console.log(`currentIndex is ${window.currentIndex}. Model classification will be disabled.`);
+        disableModelFunctionality(); // 분류 기능 비활성화
+        return; // 더 이상의 초기화 진행 중단
+    }
+
+    function disableModelFunctionality() {
+        console.log('Disabling model functionality.');
+
+        // 분류 루프 중단
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+            console.log('Classification loop stopped.');
+        }
+
+        // 웹캠 스트림 종료
+        if (webcamElement.srcObject) {
+            webcamElement.srcObject.getTracks().forEach(track => track.stop());
+            console.log('Webcam stream stopped.');
+        }
+
+        // 모델 상태 초기화
+        models = [];
+        isModelActive = false;
+    }
+
     // 웹캠 시작
     async function startWebcam() {
         try {
@@ -57,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('loading').style.display = 'none';
             console.log('Models loaded');
             isClassified = 0; // 모델이 실행되었음을 표시
-            startCountdown();
+
             isModelActive = true;
         }
         if (window.currentIndex !== 2 || isClassified === 1) {
@@ -95,27 +122,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 분류 수행
     async function classifyFrame(canvas, model, resultElementId) {
-        const prediction = await model.predict(canvas);
-        // console.log(prediction);
-        // 가장 높은 확률의 클래스명 가져오기
-        const highestPrediction = prediction.reduce((prev, current) =>
-            (prev.probability > current.probability) ? prev : current // 저번의 중간 발표때 접하고 공부해봤던 삼항연산자
-            /*
-            
-            저 부분 혹시나 이해 못할까봐 부연설명을 붙이자면
-            
-            각 모델마다 class 분류를 할 때 확률 비교를 하지요? 이때, class1이 0.1, class2가 0.06, class3이 0.94라고 가정합시다.
-            일단, reduce라는 친구가 배열을 순환합니다. 이제 prev.probably(이전 확률)이 current.probably(지금거 확률)보다 큰지 비교하고요
-            맞으면 삼항연산자 뒤의 prev값을 뱉고, 틀리면 current 값을 뱉습니다. 단 한 줄의 논리연산으로 if문이나 case문을 대체하다니 완전럭키비키
-            
-            */
-        );
+        if (currentIndex == 2) {
+            const prediction = await model.predict(canvas);
+            // console.log(prediction);
+            // 가장 높은 확률의 클래스명 가져오기
+            const highestPrediction = prediction.reduce((prev, current) =>
+                (prev.probability > current.probability) ? prev : current // 저번의 중간 발표때 접하고 공부해봤던 삼항연산자
+                /*
+                
+                저 부분 혹시나 이해 못할까봐 부연설명을 붙이자면
+                
+                각 모델마다 class 분류를 할 때 확률 비교를 하지요? 이때, class1이 0.1, class2가 0.06, class3이 0.94라고 가정합시다.
+                일단, reduce라는 친구가 배열을 순환합니다. 이제 prev.probably(이전 확률)이 current.probably(지금거 확률)보다 큰지 비교하고요
+                맞으면 삼항연산자 뒤의 prev값을 뱉고, 틀리면 current 값을 뱉습니다. 단 한 줄의 논리연산으로 if문이나 case문을 대체하다니 완전럭키비키
+                
+                */
+            );
 
-        // 결과 HTML 업데이트
+            // 결과 HTML 업데이트
+            startCountdown();
 
-        //결과 저장
-        latestResults[resultElementId] = highestPrediction.className;
-        console.log(`${resultElementId}: ${highestPrediction.className}`);
+            //결과 저장
+            latestResults[resultElementId] = highestPrediction.className;
+            console.log(`${resultElementId}: ${highestPrediction.className}`);
+        }
     }
 
     function stopClassification() {
@@ -158,18 +188,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (pages.length > 0) {
             console.log('미착용 장비가 식별되었습니다');
-            window.startPageSequence(pages);    
+            window.startPageSequence(pages);
         } else {
             console.log('모두 참. 페이지 이동 없음.');
         }
     }
 
     function startCountdown() {
-        console.log('Countdown started.');
-        setTimeout(() => {
-            stopClassification(); // 분류 멈춤
-            stopWebcam();         // 웹캠 멈춤
-        }, 7000); // 7초 뒤 실행
+        if (currentIndex == 2) {
+            console.log('Countdown started.');
+            setTimeout(() => {
+                stopClassification(); // 분류 멈춤
+                stopWebcam();         // 웹캠 멈춤
+            }, 7000); // 7초 뒤 실행
+        }
+        else {
+            return;
+        }
     }
 
     // 초기화
@@ -182,12 +217,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function executeClassGear() {
-    if (window.currentIndex == !2) { // 특정 값이 아닐 때 실행 중지
+    if (window.currentIndex > 2) { // 특정 값이 아닐 때 실행 중지
         console.log(`Execution stopped due to currentIndex condition. now index is ${window.currentIndex}`);
         return;
     }
     // 정상적으로 실행
-    console.log("Executing classGear.js logic...");
+    console.log(`Executing classGear.js logic... now index is ${currentIndex}`);
+    return;
 }
 
 // 주기적으로 상태 확인 (필요 시 사용)
