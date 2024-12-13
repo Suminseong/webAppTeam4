@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const $sectionWrap = $(".section-wrap"); // 섹션 래퍼
     const sectionWidth = 1080; // 섹션 너비
-    window.currentIndex = 0; // 현재 섹션 인덱스
+    let currentIndex = 0; // 현재 섹션 인덱스   
 
     // 섹션 이동 함수
     function moveToSection(index) {
@@ -42,6 +42,7 @@ $(document).ready(function () {
     // 체크하기 버튼 클릭 시
     $("#check-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
+            moveToSection(currentIndex + 1);
         }
     });
 
