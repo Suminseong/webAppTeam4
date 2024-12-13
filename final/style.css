@@ -1302,3 +1302,257 @@ footer {
 .course-action {
     animation: courseHover 2s ease-in-out 1 both;
 }
+
+/* 코스선택 */
+
+#img1G{
+            
+    transform-origin: 50% 1710px;
+    animation: i1G 1.75s linear;
+    transform: perspective(100px);
+}
+@keyframes i1G{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    50% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(10deg);
+    }
+    85% {
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+#img2G{
+    
+    transform-origin: 50% 1710px;
+    animation: i2G 2s linear;
+    transform: perspective(100px);
+}
+@keyframes i2G{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    53% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(10deg);
+    }
+    85% {
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+#img3G{
+    
+    transform-origin: 50% 1710px;
+    animation: i3G 2.05s linear;
+    transform: perspective(100px);
+}
+@keyframes i3G{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    57% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(10deg);
+    }
+    85% {
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+#img4G{
+    
+    transform-origin: 50% 1710px;
+    animation: i4G 2.2s linear;
+    transform: perspective(100px);
+}
+@keyframes i4G{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    60% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(10deg);
+    }
+    85% {
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+#img5G{
+    
+    transform-origin: 50% 1920px;
+    animation: i5G 2.3s linear;
+    transform: perspective(100px);
+}
+@keyframes i5G{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    65% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+
+    }
+    85% {
+        transform: rotateX(10deg);
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+#img6G{
+    position: absolute;
+    margin-left: 400px;
+    margin-bottom: 480px;
+    scale: 0.75;
+    transform-origin: 50% 1710px;
+    animation: i6G 2.2s linear forwards;
+    transform: perspective(100px);
+    transform: rotateX(270deg);
+}
+@keyframes i6G{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    68% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+
+    }
+    85% {
+        transform: rotateX(10deg);
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+
+/* 등산 자세 가이드 */
+
+#img1H{
+            
+    transform-origin: 50% 1710px;
+    animation: i1H 1.75s linear;
+    transform: perspective(100px);
+}
+@keyframes i1H{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    50% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(10deg);
+    }
+    85% {
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+#img2H{
+    
+    transform-origin: 50% 1710px;
+    animation: i2H 2s linear;
+    transform: perspective(100px);
+}
+@keyframes i2H{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    53% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(10deg);
+    }
+    85% {
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+#img3H{
+    
+    transform-origin: 50% 1710px;
+    animation: i3H 2.05s linear;
+    transform: perspective(100px);
+}
+@keyframes i3H{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    57% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(10deg);
+    }
+    85% {
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+#img4H{
+    position: absolute;
+    margin-bottom: 140px;
+    scale: 1.1;
+    transform-origin: 50% 1710px;
+    animation: i4H 2.2s linear;
+    transform: perspective(100px);
+}
+@keyframes i4H{
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+    60% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(10deg);
+    }
+    85% {
+    }
+    100%{
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
