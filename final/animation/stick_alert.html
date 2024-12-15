@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,35 +14,41 @@
             font-weight: 400;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
             font-weight: 200;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
             font-weight: 500;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
             font-weight: 700;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
             font-weight: 100;
             font-style: normal;
         }
-        *{
+
+        * {
             margin: 0;
             font-family: 'Pretendard-Regular';
         }
-        .box{
+
+        .box {
             width: 1080px;
             height: 1920px;
             border: solid 5px #000000;
@@ -51,17 +58,27 @@
             background-color: #FBF7EC;
             border-radius: 30px;
         }
-        img{
+
+        img {
             position: absolute;
             bottom: 0px;
         }
-        #img1{
-            
+
+        #img1 {
+
             transform-origin: 50% 1710px;
             animation: i1 1.65s linear;
             transform: perspective(100px);
         }
-        @keyframes i1{
+
+        
+#img1subC{
+            
+            transform-origin: 50% 1710px;
+            animation: i1subC 1.65s linear;
+            transform: perspective(100px);
+        }
+        @keyframes i1subC{
             0% {
                 bottom: 0px;
                 transform: rotateX(270deg);
@@ -79,13 +96,13 @@
                 transform: rotateX(0deg);
             }
         }
-        #img2{
+        #img2subC{
             
             transform-origin: 50% 1710px;
-            animation: i2 1.9s linear;
+            animation: i2subC 1.9s linear;
             transform: perspective(100px);
         }
-        @keyframes i2{
+        @keyframes i2subC{
             0% {
                 bottom: 0px;
                 transform: rotateX(270deg);
@@ -103,13 +120,13 @@
                 transform: rotateX(0deg);
             }
         }
-        #img3{
+        #img3subC{
             
             transform-origin: 50% 1710px;
-            animation: i3 1.95s linear;
+            animation: i3subC 1.95s linear;
             transform: perspective(100px);
         }
-        @keyframes i3{
+        @keyframes i3subC{
             0% {
                 bottom: 0px;
                 transform: rotateX(270deg);
@@ -127,13 +144,13 @@
                 transform: rotateX(0deg);
             }
         }
-        #img4{
+        #img4subC{
             
             transform-origin: 50% 1710px;
-            animation: i4 2.1s linear;
+            animation: i4subC 2.1s linear;
             transform: perspective(100px);
         }
-        @keyframes i4{
+        @keyframes i4subC{
             0% {
                 bottom: 0px;
                 transform: rotateX(270deg);
@@ -151,13 +168,13 @@
                 transform: rotateX(0deg);
             }
         }
-        #img5{
+        #img5subC{
             
             transform-origin: 50% 1710px;
-            animation: i5 2.2s linear;
+            animation: i5subC 2.2s linear;
             transform: perspective(100px);
         }
-        @keyframes i5{
+        @keyframes i5subC{
             0% {
                 bottom: 0px;
                 transform: rotateX(270deg);
@@ -166,7 +183,7 @@
                 transform: rotateX(-20deg);
             }
             80% {
-
+        
             }
             85% {
                 transform: rotateX(10deg);
@@ -176,14 +193,14 @@
                 transform: rotateX(0deg);
             }
         }
-        #img6{
+        #img6subC{
             
             transform-origin: 50% 1710px;
-            animation: i6 2.1s linear forwards;
+            animation: i6subC 2.1s linear forwards;
             transform: perspective(100px);
             transform: rotateX(270deg);
         }
-        @keyframes i6{
+        @keyframes i6subC{
             0% {
                 bottom: 0px;
                 transform: rotateX(270deg);
@@ -192,7 +209,7 @@
                 transform: rotateX(-20deg);
             }
             80% {
-
+        
             }
             85% {
                 transform: rotateX(10deg);
@@ -202,7 +219,8 @@
                 transform: rotateX(0deg);
             }
         }
-        .header{
+
+        .header {
             width: 1080px;
             height: 120px;
             background-color: #ffffff;
@@ -212,7 +230,8 @@
             display: flex;
             color: #006039;
         }
-        .bottom{
+
+        .bottom {
             width: 1080px;
             height: 210px;
             bottom: 0px;
@@ -223,7 +242,8 @@
             align-items: center;
             justify-content: center;
         }
-        button{
+
+        button {
             width: 448px;
             height: 132px;
             border-radius: 52px;
@@ -233,48 +253,56 @@
             border: 3px solid;
             border-color: #006039;
         }
-        #btn1{
+
+        #btn1 {
             color: #006039;
         }
-        #btn2{
+
+        #btn2 {
             background-color: #006039;
             color: #ffffff;
         }
-        .product{
+
+        .product {
             margin: 108px 0 0 80px;
         }
-        .product h1{
+
+        .product h1 {
             font-size: 80px;
             font-weight: 700;
             margin-bottom: 40px;
             color: #006039;
         }
-        .product p{
+
+        .product p {
             font-size: 52px;
             font-weight: 400;
             color: #323232;
         }
     </style>
 </head>
+
 <body>
     <div class="box">
-    <div class="header">
-        <h1>국립공원공단</h1>
-    </div>
-    <div class="product">
-        <h1>신발이 부적합해요!</h1>
-        <p>가파르지 않은 산이여도 등산중에<br>슬리퍼나 구두를 신으면 위험해요!</p>
-    </div>
-    <img id="img1" src="웹기초 이미지/등산 스틱 없어요 산1.png">
-    <img id="img2" src="웹기초 이미지/등산 스틱 없어요 산2.png">
-    <img id="img3" src="웹기초 이미지/등산 스틱 없어요 나무1.png">
-    <img id="img4" src="웹기초 이미지/등산 스틱 없어요 나무2.png">
-    <img id="img5" src="웹기초 이미지/등산 스틱 없어요 강1.png">
-    <img id="img6" src="웹기초 이미지/등산 스틱 없어요 사람1.png">
-    <div class="bottom">
-        <button id="btn1">이전</button>
-        <button id="btn2">다음</button>
-    </div>
+        <div class="header">
+            <h1>국립공원공단</h1>
+        </div>
+        <div class="product">
+            <h1>등산 스틱이 없어요!</h1>
+            <p>넘어짐 방지와 체력 조절을 위해서<br>
+                등산 스틱을 챙기는게 좋아요.</p>
+        </div>
+        <img id="img1subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 산1.png">
+        <img id="img2subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 산2.png">
+        <img id="img3subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 나무1.png">
+        <img id="img4subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 나무2.png">
+        <img id="img5subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 강1.png">
+        <img id="img6subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 사람1.png">
+        <div class="bottom">
+            <button id="btn1">이전</button>
+            <button id="btn2">다음</button>
+        </div>
     </div>
 </body>
+
 </html>
