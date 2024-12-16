@@ -1,12 +1,11 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../classAction.js"></script>
+    <!-- <script src="../classAction.js"></script> -->
     <title>Document</title>
     <style>
         @font-face {
@@ -15,35 +14,41 @@
             font-weight: 400;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
             font-weight: 200;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
             font-weight: 500;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
             font-weight: 700;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
             font-weight: 100;
             font-style: normal;
         }
-        *{
+
+        * {
             margin: 0;
             font-family: 'Pretendard-Regular';
         }
-        .box{
+
+        .box {
             width: 1080px;
             height: 1920px;
             border: solid 5px #000000;
@@ -53,7 +58,8 @@
             background-color: #FBF7EC;
             border-radius: 30px;
         }
-        .header{
+
+        .header {
             width: 1080px;
             height: 120px;
             background-color: #ffffff;
@@ -63,7 +69,8 @@
             display: flex;
             color: #006039;
         }
-        .bottom{
+
+        .bottom {
             width: 1080px;
             height: 210px;
             bottom: 0px;
@@ -74,7 +81,8 @@
             align-items: center;
             justify-content: center;
         }
-        button{
+
+        button {
             width: 448px;
             height: 132px;
             border-radius: 52px;
@@ -84,28 +92,34 @@
             border: 3px solid;
             border-color: #006039;
         }
-        #btn1{
+
+        #btn1 {
             color: #006039;
         }
-        #btn2{
+
+        #btn2 {
             background-color: #006039;
             color: #ffffff;
         }
-        .product{
+
+        .product {
             margin: 108px 0 0 80px;
         }
-        .product h1{
+
+        .product h1 {
             font-size: 80px;
             font-weight: 700;
             margin-bottom: 40px;
             color: #006039;
         }
-        .product p{
+
+        .product p {
             font-size: 52px;
             font-weight: 400;
             color: #323232;
         }
-        .circle-progress::before{
+
+        .circle-progress::before {
             content: "";
             position: absolute;
             height: 246px;
@@ -113,53 +127,68 @@
             border-radius: 50%;
             background-color: #FBF7EC;
         }
-        #lottie{
+
+        #lottie {
             position: absolute;
             left: -60px;
             top: 500px;
-        }#check{
+        }
+
+        #check {
             position: absolute;
             margin: 490px 395px 0;
             z-index: 1;
             animation: check 0.4s ease-in-out;
         }
-        @keyframes check{
-            0%{
+
+        @keyframes check {
+            0% {
                 transform: translate(28px, 20px);
             }
-            30%{
+
+            30% {
                 transform: translate(-30px, -20px);
             }
-            62%{
+
+            62% {
                 transform: translate(-14px, 18px);
 
             }
-            86%{
+
+            86% {
                 transform: translate(14px, -12px);
             }
-            100%{
 
-            }
+            100% {}
         }
     </style>
 </head>
+
 <body>
     <div class="box">
-    <div class="header">
-        <h1>국립공원공단</h1>
-    </div>
-    <div class="product">
-        <h1>신발이 부적합해요!</h1>
-        <p>가파르지 않은 산이여도 등산중에<br>슬리퍼나 구두를 신으면 위험해요!</p>
-    </div>
+        <div class="header">
+            <h1>국립공원공단</h1>
+        </div>
+        <div class="product">
+            <h1>장비가 인식되지 않았어요!</h1>
+            <p>카메라와 적정거리를 유지하고<br>발 끝까지 보이게 옆으로 서주세요</p>
+        </div>
 
-    <img id="check" src="웹기초_이미지/x.svg">
-    
-    <div class="bottom">
-        <button id="btn1">이전</button>
-        <button id="btn2">다음</button>
+        <img id="check" src="웹기초 이미지/x.svg">
+
+        <div class="bottom">
+            <button id="btn1"></button>
+            <button id="btn2">다음</button>
+        </div>
     </div>
-    </div>
-    
+    <script>
+        const nextButton = document.querySelector("#btn2");
+
+        nextButton.addEventListener("click", clickEvent);
+        function clickEvent() {
+            window.location.href = '/final/index2.html';
+        }
+    </script>
 </body>
+
 </html>
