@@ -1285,7 +1285,12 @@ footer {
 
 /* 코스보기 */
 
-.course-top {
+.top-opa {
+    opacity: 1;
+}
+
+
+#top-modal {
     background-color: #fff;
     width: 922px;
     height: 164px;
@@ -1336,7 +1341,14 @@ footer {
     letter-spacing: -4%;
     font-weight: 700;
     text-align: center;
+    opacity: 0;
 }
+
+#conF-img {
+    opacity: 0;
+}
+
+
 
 .map {
     width: 920px;
@@ -1376,6 +1388,8 @@ footer {
     }
     
 }
+
+
 
 .conF-icon {
     background-color: initial;
@@ -1698,4 +1712,5 @@ img.fade-in {
     top: 65%;
     transform: translate(-50%, -50%);
     scale: 2;
+    opacity: 0.9;
 }

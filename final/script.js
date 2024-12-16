@@ -3,6 +3,7 @@ $(document).ready(function () {
     const sectionWidth = 1080; // 섹션 너비
     window.currentIndex = 0; // 현재 섹션 인덱스   
 
+
     // 섹션 이동 함수
     function moveToSection(index) {
         if (index >= 0 && index < $(".section-wrap section").length) {
@@ -181,20 +182,6 @@ onHashChange();
 $(window).on("hashchange", function () {
     onHashChange();
 });
-
-
-    // **예시: 섹션 이동 함수 (필요에 따라 구현)**
-    // function moveToSection(index) {
-    //     // 섹션 이동 로직 구현
-    //     window.location.hash = `#${index}`; // 해시 업데이트
-    // }
-
-    // **예시: 버튼 클릭 시 섹션 이동 (필요에 따라 구현)**
-    // $("#next-btn").on("click", function () {
-    //     const currentIndex = getCurrentIndex();
-    //     moveToSection(currentIndex + 1);
-    // });
-
 
     // 언어별 텍스트 데이터
     const translations = {
@@ -449,13 +436,18 @@ $(window).on("hashchange", function () {
         },
     };
 
+
 $("#language-btn-wrap button").on("click", function () {
     const lang = $(this).attr("id"); // 클릭된 버튼 ID (언어 코드)
+
+    
 
     if (translations[lang]) {
         // 모든 텍스트 업데이트
         $.each(translations[lang], function (selector, text) {
-            $(selector).html(text);
+            $(selector).each(function () {
+                $(this).html(text);
+            });
         });
 
         // 언어별 con-sub-text의 scale 조정
