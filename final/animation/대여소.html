@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,35 +12,41 @@
             font-weight: 400;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
             font-weight: 200;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
             font-weight: 500;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
             font-weight: 700;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
             font-weight: 100;
             font-style: normal;
         }
-        *{
+
+        * {
             margin: 0;
             font-family: 'Pretendard-Regular';
         }
-        .box{
+
+        .box {
             width: 1080px;
             height: 1920px;
             border: solid 5px #000000;
@@ -49,36 +56,42 @@
             background-color: #FBF7EC;
             border-radius: 30px;
         }
-        img{
+
+        img {
             position: absolute;
             bottom: 0px;
         }
-        #img1{
-            
+
+        #img1 {
+
             transform-origin: 50% 1710px;
             animation: i1 1.7s linear;
             transform: perspective(100px);
         }
-        @keyframes i1{
+
+        @keyframes i1 {
             0% {
                 bottom: 0px;
                 transform: rotateX(270deg);
             }
+
             50% {
                 transform: rotateX(-20deg);
             }
+
             80% {
                 transform: rotateX(10deg);
             }
-            85% {
-            }
-            100%{
+
+            85% {}
+
+            100% {
                 bottom: 0px;
                 transform: rotateX(0deg);
             }
         }
 
-        .header{
+        .header {
             width: 1080px;
             height: 120px;
             background-color: #ffffff;
@@ -88,7 +101,8 @@
             display: flex;
             color: #006039;
         }
-        .bottom{
+
+        .bottom {
             width: 1080px;
             height: 210px;
             bottom: 0px;
@@ -99,7 +113,8 @@
             align-items: center;
             justify-content: center;
         }
-        button{
+
+        button {
             width: 448px;
             height: 132px;
             border-radius: 52px;
@@ -109,43 +124,59 @@
             border: 3px solid;
             border-color: #006039;
         }
-        #btn1{
+
+        #btn1 {
             color: #006039;
         }
-        #btn2{
+
+        #btn2 {
             background-color: #006039;
             color: #ffffff;
         }
-        .product{
+
+        .product {
             margin: 108px 0 0 80px;
         }
-        .product h1{
+
+        .product h1 {
             font-size: 80px;
             font-weight: 700;
             margin-bottom: 40px;
             color: #006039;
         }
-        .product p{
+
+        .product p {
             font-size: 52px;
             font-weight: 400;
             color: #323232;
         }
     </style>
 </head>
+
 <body>
     <div class="box">
-    <div class="header">
-        <h1>국립공원공단</h1>
+        <div class="header">
+            <h1>국립공원공단</h1>
+        </div>
+        <div class="product">
+            <h1>장비가 필요하신가요?</h1>
+            <p>입구에 있는 국립공원사무소에서<br>무료로 장비를 대여해드리고 있어요!</p>
+        </div>
+        <img id="img1" src="웹기초 이미지/대여소.png">
+        <div class="bottom">
+            <button id="btn1">이전</button>
+            <button id="btn2">다음</button>
+        </div>
     </div>
-    <div class="product">
-        <h1>신발이 부적합해요!</h1>
-        <p>가파르지 않은 산이여도 등산중에<br>슬리퍼나 구두를 신으면 위험해요!</p>
-    </div>
-    <img id="img1" src="웹기초 이미지/대여소.png">
-    <div class="bottom">
-        <button id="btn1">이전</button>
-        <button id="btn2">다음</button>
-    </div>
-    </div>
+    <script>
+        const nextButton = document.querySelector("#btn2");
+
+        nextButton.addEventListener("click", clickEvent);
+        function clickEvent(){
+            window.location.href = '/final/index2.html';
+        }
+
+    </script>
 </body>
+
 </html>
