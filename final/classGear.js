@@ -160,14 +160,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function handleResults(results) { //이미지 분류 결과에 따라 페이지 넘어가는 부분
+    function handleResults(results) { 
         const keyToLabel = { ///result1,2,3을 라벨링하고 긁어오게
             result1: 'stick',
             result2: 'bag',
             result3: 'shoes'
         };
 
-        const pages = [];
+        //페이지 이동 처리는 classAction에서 수행하니까 여기서 이상한거 건들면 안되비낟!
+
+        const pages = []; //페이지 순서대로 들어갈 배열
         const resultKeys = Object.keys(results);
 
         for (const key of resultKeys) {
@@ -177,18 +179,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log(`Key: ${key}, Label: ${label}, Expected: ${expectedFalse}, Current: ${currentValue}`);
             if (currentValue === 'nothing') {
-                console.log('인식에 문제가 발생했습니다. 오류페이지로 점프합니다.');
                 window.location.href = 'animation/classify_error.html';
                 return;
             } else if (currentValue === expectedFalse) {
-                console.log(`맞지 않는 키를 발견했습니다 ${key}`);
-                pages.push(`${label}_alert.html`);
+                pages.push(`${label}_alert.html`); //없다면 신발/가방/스틱_alert.html 배열로 넣기
             }
         }
 
         if (pages.length > 0) {
             console.log('미착용 장비가 식별되었습니다');
-            window.startPageSequence(pages);
+            window.startPageSequence(pages); //페이지 넘기기 시작
         } else {
             console.log('모두 참. 페이지 이동 없음.');
         }
