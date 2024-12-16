@@ -31,6 +31,13 @@ $(document).ready(function () {
         }
     });
 
+    //코스 버튼 클릭 시
+    $("#route-btn").on("click", function () {
+        if (currentIndex < $(".section-wrap section").length - 1) {
+            window.location.href = "index2.html#6"
+        }
+    });
+
     // 다음 버튼 클릭 시
     $("#next-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
