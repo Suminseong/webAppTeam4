@@ -130,6 +130,7 @@ function onHashChange() {
             break;
         case 12:
             console.log("Case 12: 애니메이션 12 시작");
+            $("#next-btn").text("다음")
             break;
         case 13:
             console.log("Case 13: 애니메이션 13 시작");
