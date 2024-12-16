@@ -102,17 +102,19 @@
                         잠시 뒤 장비 체크가 시작됩니다.</h4>
                 </div>
                 <div class="webcam">
+                    <div class="scan-shadow"></div>
+                    <img class="guide" src="./Img/guide.png" alt="guide">
                     <script src="classGear.js"></script>
                     <script src="classAction.js"></script>
                     <div id="loading">모델을 로딩 중입니다. 잠시만 기다려 주세요...</div>
                     <!-- Webcam element -->
-                    <video id="webcam" autoplay playsinline
-                        style="width: 920px; height: 1100px; object-fit: cover;"></video>
+                    <video id="webcam" autoplay playsinline style="width: 920px; height: 1100px; object-fit: cover;"></video>
                     <!-- Invisible canvases -->
                     <canvas id="canvas1" width="360" height="360" style="object-fit: cover; left: 200px;"></canvas>
                     <canvas id="canvas2" width="360" height="400" style="object-fit: cover; left: 400px;"></canvas>
                     <canvas id="canvas3" width="400" height="300" style="object-fit: cover; left: 600px;"></canvas>
                 </div>
+    
             </section>
 
             <section id="conD">
@@ -152,12 +154,8 @@
                         코스를 추천드릴게요!</h4>
                 </div>
 
-                <div class="img-wrap" style="transform: translateY(-480px);">
-                    <img id="checkaa" src="./animation/웹기초 이미지/체크.svg">
-                    <dotlottie-player id="lottie"
-                        src="https://lottie.host/993f51ca-e69b-4a00-a533-48f8fed85414/fXJ69DpuCk.lottie"
-                        background="transparent" speed="1" style="width: 1200px; height: 1200px" loop="ture"
-                        autoplay="ture"></dotlottie-player>
+                <div class="img-wrap" style="transform: translateY(640px);">
+                    <dotlottie-wc src="https://lottie.host/6065f84c-f006-4bdc-9411-59bfd6ba96ff/nT0fYLyaeP.lottie" autoplay loop></dotlottie-wc>
                 </div>
 
             </section>
@@ -243,75 +241,6 @@
                         <img id="img4A" src="./Img/conA/backM3.png">
                         <img id="img5A" src="./Img/conA/circle.png">
                     </div>
-            </section>
-
-            <!-- Section conB -->
-            <section id="conB">
-                <div class="step-wrap">
-                    <ul class="step">
-                        <li class="stepOn">1</li>
-                        <li class="stepTw">2</li>
-                        <li class="stepTh">3</li>
-                        <li class="stepFo">4</li>
-                    </ul>
-                    <h5 class="step-text"></h5>
-                </div>
-                <div class="con-text-wrap">
-                    <h1 class="con-title-text">장비 체크</h1>
-                    <h4 class="con-sub-text">가방, 스틱, 신발 체크를 위해 <br>
-                        키오스크 앞에서 옆을 보고 서주세요.</h4>
-                </div>
-                <div class="img-wrap">
-                    <img id="img1B" src="./Img/conB/checkP1.gif">
-                    <img id="img2B" src="./Img/conB/checkT1.png">
-                    <img id="img3B" src="./Img/conB/checkT2.png">
-                    <img id="img4B" src="./Img/conB/checkT3.png">
-                </div>
-            </section>
-
-            <!-- Section conC -->
-            <section id="conC">
-                <div class="step-wrap">
-                    <ul class="step">
-                        <li class="stepOn">1</li>
-                        <li class="stepTw">2</li>
-                        <li class="stepTh">3</li>
-                        <li class="stepFo">4</li>
-                    </ul>
-                    <h5 class="step-text"></h5>
-                </div>
-                <div class="con-text-wrap">
-                    <h1 class="con-title-text">장비 체크</h1>
-                    <h4 class="con-sub-text">아래의 가이드에 맞춰 서주세요!<br>
-                        잠시 뒤 장비 체크가 시작됩니다.</h4>
-                </div>
-                <div class="webcam">
-                    <script src="classGear.js"></script>
-                    <script src="classAction.js"></script>
-                    <div id="loading">모델을 로딩 중입니다. 잠시만 기다려 주세요...</div>
-                    <video id="webcam" autoplay playsinline
-                        style="width: 920px; height: 1100px; object-fit: cover;"></video>
-                    <canvas id="canvas1" width="360" height="360" style="object-fit: cover; left: 200px;"></canvas>
-                    <canvas id="canvas2" width="360" height="400" style="object-fit: cover; left: 400px;"></canvas>
-                    <canvas id="canvas3" width="400" height="300" style="object-fit: cover; left: 600px;"></canvas>
-                </div>
-            </section>
-
-            <!-- Section conD -->
-            <section id="conD">
-                <div class="step-wrap">
-                    <ul class="step">
-                        <li class="stepOn">1</li>
-                        <li class="stepTw">2</li>
-                        <li class="stepTh">3</li>
-                        <li class="stepFo">4</li>
-                    </ul>
-                    <h5 class="step-text"></h5>
-                </div>
-                <div class="con-text-wrap">
-                    <h1 class="con-title-text">장비 체크중...</h1>
-                    <h4 class="con-sub-text">착용하신 장비를 확인하고 있어요.</h4>
-                </div>
             </section>
         </div>
 

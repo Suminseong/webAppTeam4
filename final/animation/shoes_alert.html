@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../classAction.js"></script>
-    <title>Document</title>
+    <title>신발X</title>
     <style>
         @font-face {
             font-family: 'Pretendard-Regular';
@@ -55,6 +55,11 @@
             position: absolute;
             bottom: 0px;
         }
+
+        .bottom {
+            z-index: 999;
+        }
+
         #img1{
             
             transform-origin: 50% 1710px;
@@ -177,7 +182,9 @@
             }
         }
         #img6{
-            
+            position: absolute;
+            scale: 1.2;
+            margin-bottom: 80px;
             transform-origin: 50% 1710px;
             animation: i6 2.1s linear forwards;
             transform: perspective(100px);
@@ -270,7 +277,7 @@
     <img id="img3" src="웹기초 이미지/신발 부적합 산3.png">
     <img id="img4" src="웹기초 이미지/신발 부적합 산4.png">
     <img id="img5" src="웹기초 이미지/신발 부적합 나무1.png">
-    <img id="img6" src="웹기초 이미지/신발 부적합 사람1.png">
+    <img id="img6" src="/final/Img/con-subA/shoesP1.gif">
     <div class="bottom">
         <button id="btn1">이전</button>
         <button id="btn2">다음</button>
