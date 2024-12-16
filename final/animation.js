@@ -32,6 +32,7 @@ function onHashChange() {
             break;
         case 1:
             console.log("Case 1: 애니메이션 1 시작");
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "var(--main--color)",
                 "color": "#fff",
@@ -43,7 +44,7 @@ function onHashChange() {
         case 2:
             console.log("Case 2: 애니메이션 2 시작");
             // $("#next-btn").text("건너뛰기");
-            setTimeout(function () {
+            setTimeout(function () { // 스캔 시작한 척ㅎㅎ
                 window.location.href = "index.html#3"; // 이동할 URL
             }, 5000);
             break;
@@ -122,23 +123,23 @@ function onHashChange() {
             break;
         case 10:
             console.log("Case 10: 애니메이션 10 시작");
-            $("#next-btn").text("건너뛰기")
+            $("#next-btn").text("건너뛰기");
             break;
         case 11:
             console.log("Case 11: 애니메이션 11 시작");
-            $("#next-btn").text("건너뛰기")
+            $("#next-btn").text("건너뛰기");
             break;
         case 12:
             console.log("Case 12: 애니메이션 12 시작");
-            $("#next-btn").text("다음")
+            $("#next-btn").text("다음");
             break;
         case 13:
             console.log("Case 13: 애니메이션 13 시작");
-            $("#next-btn").text("건너뛰기")
+            $("#next-btn").text("건너뛰기");
             break;
         case 14:
             console.log("Case 14: 애니메이션 14 시작");
-            $("#next-btn").text("건너뛰기")
+            $("#next-btn").text("건너뛰기");
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
