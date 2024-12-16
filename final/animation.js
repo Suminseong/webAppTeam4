@@ -12,14 +12,33 @@ function getCurrentIndexFromURL() {
 }
 
 // 해시 변경 이벤트 핸들러
+
 function onHashChange() {
     currentIndex = getCurrentIndexFromURL();
+    $(".step li").css({
+        "background-color": "#fff",
+        "color": "var(--main--color)",
+    });
     switch (currentIndex) {
         case 0:
             console.log("Case 0: 초기 상태");
+            $(".stepOn").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("장비 체크");
+            $(".step-text").css("transform", "translateX(0px)");
+            $(".stepOn").text("1");
             break;
         case 1:
             console.log("Case 1: 애니메이션 1 시작");
+            $(".stepOn").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("장비 체크");
+            $(".step-text").css("transform", "translateX(0px)");
+            $(".stepOn").text("1");
             break;
         case 2:
             console.log("Case 2: 애니메이션 2 시작");
@@ -29,15 +48,67 @@ function onHashChange() {
             break;
         case 4:
             console.log("Case 4: 애니메이션 4 시작");
+            $(".stepOn").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("장비 체크");
+            $(".step-text").css("transform", "translateX(0px)");
+            $(".stepOn").text("1");
             break;
         case 5:
             console.log("Case 5: 애니메이션 5 시작");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("코스 선택");
+            $(".step-text").css("transform", "translateX(80px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").text("2")
             break;
         case 6:
             console.log("Case 6: 애니메이션 6 시작");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("코스 선택");
+            $(".step-text").css("transform", "translateX(80px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").text("2")
             break;
         case 7:
             console.log("Case 7: 애니메이션 7 시작");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("자세 학습");
+            $(".step-text").css("transform", "translateX(160px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").text("3")
             break;
         case 8:
             console.log("Case 8: 애니메이션 8 시작");
@@ -59,9 +130,53 @@ function onHashChange() {
             break;
         case 14:
             console.log("Case 14: 애니메이션 14 시작");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("자세 학습");
+            $(".step-text").css("transform", "translateX(160px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").text("3")
             break;
         case 15:
             console.log("Case 15: 마지막 애니메이션");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepFo").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("준비 완료");
+            $(".step-text").css("transform", "translateX(240px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTh span").css("fontSize", "32px");
+            $(".stepFo").text("4")
             break;
         default:
             console.log("알 수 없는 상태: 기본으로 설정");

@@ -6,6 +6,11 @@ let consecutivePoseDownCount = 0; // 연속 Pose-down 감지 횟수
 let poseDownActionCompleted = false; // Pose-down 감지 후 단 한 번 실행 제한
 let poseDownHoldActionCompleted = false; // Pose-down 3회 연속 감지 후 단 한 번 실행 제한
 
+let poseUpDetected = false;
+let consecutivePoseUpCount = 0; 
+let poseUpActionCompleted = false; 
+let poseUpHoldActionCompleted = false; 
+
 document.addEventListener("DOMContentLoaded", () => {
     // 페이지 변경 감지를 위해 hashchange 이벤트 리스너 추가
     window.addEventListener("hashchange", handlePageChange);
@@ -96,6 +101,7 @@ async function predict() {
     if (pose) {
         const prediction = await model.predict(posenetOutput);
         const poseDown = prediction.find(p => p.className === "pose-down");
+        const poseUp = prediction.find(p => p.className === "pose-up");
 
         if (currentIndex === 10 && poseDown && poseDown.probability > 0.8 && !poseDownActionCompleted) {
             // Pose-down 감지 시 단 한 번 동작
@@ -108,15 +114,35 @@ async function predict() {
             // 연속 Pose-down 감지 횟수 증가
             consecutivePoseDownCount++;
             console.log(`Pose-down 감지 횟수: ${consecutivePoseDownCount}`);
-            if (consecutivePoseDownCount >= 3 && !poseDownHoldActionCompleted) {
-                console.log("Pose-down 3회 연속 감지됨. 추가 페이지 이동.");
+            if (consecutivePoseDownCount >= 5 && !poseDownHoldActionCompleted) {
+                console.log("Pose-down 5회 연속 감지됨. 추가 페이지 이동.");
                 moveToNextPage();
                 poseDownHoldActionCompleted = true; // 동작 제한
                 consecutivePoseDownCount = 0; // 카운트 초기화
             }
-        } else {
-            // Pose-down 감지 실패 시 카운트 초기화
-            consecutivePoseDownCount = 0;
+        } 
+        // else {
+        //     // Pose-down 감지 실패 시 카운트 초기화
+        //     consecutivePoseDownCount = 0;
+        // }
+
+        if (currentIndex === 13 && poseUp && poseUp.probability > 0.8 && !poseUpActionCompleted) {
+            // Pose-up 감지 시 단 한 번 동작
+            console.log("Pose-up 감지됨. 페이지 이동.");
+            moveToNextPage();
+            poseUpActionCompleted = true; // 동작 제한
+        }
+
+        if (currentIndex === 14 && poseUp && poseUp.probability > 0.8) {
+            // 연속 Pose-up 감지 횟수 증가
+            consecutivePoseUpCount++;
+            console.log(`Pose-up 감지 횟수: ${consecutivePoseUpCount}`);
+            if (consecutivePoseUpCount >= 5 && !poseUpHoldActionCompleted) {
+                console.log("Pose-up 5회 연속 감지됨. 추가 페이지 이동.");
+                moveToNextPage();
+                poseUpHoldActionCompleted = true; // 동작 제한
+                consecutiveUpDownCount = 0; // 카운트 초기화
+            }
         }
     } else {
         console.error("Pose 데이터가 생성되지 않았습니다.");
@@ -126,6 +152,10 @@ async function predict() {
 function moveToNextPage() {
     const currentHash = window.location.hash.replace("#", "") || "0";
     const nextHash = parseInt(currentHash, 10) + 1;
+
+    poseDownActionCompleted = false;
+    poseDownHoldActionCompleted = false;
+
     window.location.hash = `#${nextHash}`;
     console.log(`페이지 이동: #${nextHash}`);
 }

@@ -19,7 +19,7 @@ $(document).ready(function () {
         if (thisIndex < $(".section-wrap section").length - 1) {
             moveToSection(thisIndex + 1);
         } else {
-            window.location.hash = "#0"; // 마지막 섹션에서 #0으로 이동
+            window.location.href = "index.html"; // 마지막 섹션에서 #0으로 이동
         }
     });
     

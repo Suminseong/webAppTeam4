@@ -79,85 +79,85 @@ function getCurrentIndex() {
 function updateStepUI(currentIndex) {
 
     // 모든 li 스타일 초기화
-    $(".step li").css({
-        "background-color": "#fff",
-        "color": "var(--main--color)",
-    });
+    // $(".step li").css({
+    //     "background-color": "#fff",
+    //     "color": "var(--main--color)",
+    // });
 
     // currentIndex에 따라 스타일 및 텍스트 업데이트
     if (currentIndex >= 1 && currentIndex <= 4) {
         // 1~4: 첫 번째 단계 활성화
-        $(".stepOn").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
-        });
-        $(".step-text").text("장비 체크");
-        $(".step-text").css("transform", "translateX(0px)");
-        $(".stepOn").text("1")
+        // $(".stepOn").css({
+        //     "background-color": "var(--main--color)",
+        //     "color": "#fff",
+        // });
+        // $(".step-text").text("장비 체크");
+        // $(".step-text").css("transform", "translateX(0px)");
+        // $(".stepOn").text("1")
     } else if (currentIndex >= 5 && currentIndex <= 6) {
         // 5~6: 두 번째 단계 활성화
-        $(".stepOn").css({
-            "background-color": "#fff",
-            "color": "var(--main--color)",
-        });
-        $(".stepTw").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
-        });
-        $(".step-text").text("코스 선택");
-        $(".step-text").css("transform", "translateX(80px)");
-        $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
-        $(".stepOn span").css("fontSize", "32px");
-        $(".stepTw").text("2")
+        // $(".stepOn").css({
+        //     "background-color": "#fff",
+        //     "color": "var(--main--color)",
+        // });
+        // $(".stepTw").css({
+        //     "background-color": "var(--main--color)",
+        //     "color": "#fff",
+        // });
+        // $(".step-text").text("코스 선택");
+        // $(".step-text").css("transform", "translateX(80px)");
+        // $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+        // $(".stepOn span").css("fontSize", "32px");
+        // $(".stepTw").text("2")
 
     } else if (currentIndex >= 7 && currentIndex < 15) {
         // 7~15: 세 번째 단계 활성화
-        $(".stepOn").css({
-            "background-color": "#fff",
-            "color": "var(--main--color)",
-        });
-        $(".stepTw").css({
-            "background-color": "#fff",
-            "color": "var(--main--color)",
-        });
-        $(".stepTh").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
-        });
-        $(".step-text").text("자세 학습");
-        $(".step-text").css("transform", "translateX(160px)");
-        $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
-        $(".stepOn span").css("fontSize", "32px");
-        $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
-        $(".stepTw span").css("fontSize", "32px");
-        $(".stepTh").text("3")
+        // $(".stepOn").css({
+        //     "background-color": "#fff",
+        //     "color": "var(--main--color)",
+        // });
+        // $(".stepTw").css({
+        //     "background-color": "#fff",
+        //     "color": "var(--main--color)",
+        // });
+        // $(".stepTh").css({
+        //     "background-color": "var(--main--color)",
+        //     "color": "#fff",
+        // });
+        // $(".step-text").text("자세 학습");
+        // $(".step-text").css("transform", "translateX(160px)");
+        // $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+        // $(".stepOn span").css("fontSize", "32px");
+        // $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+        // $(".stepTw span").css("fontSize", "32px");
+        // $(".stepTh").text("3")
     } else if (currentIndex === 15) {
         // 15: 네 번째 단계 활성화
-        $(".stepOn").css({
-            "background-color": "#fff",
-            "color": "var(--main--color)",
-        });
-        $(".stepTw").css({
-            "background-color": "#fff",
-            "color": "var(--main--color)",
-        });
-        $(".stepTh").css({
-            "background-color": "#fff",
-            "color": "var(--main--color)",
-        });
-        $(".stepFo").css({
-            "background-color": "var(--main--color)",
-            "color": "#fff",
-        });
-        $(".step-text").text("준비 완료");
-        $(".step-text").css("transform", "translateX(240px)");
-        $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
-        $(".stepOn span").css("fontSize", "32px");
-        $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
-        $(".stepTw span").css("fontSize", "32px");
-        $(".stepTh").html(`<span class="material-symbols-outlined">check_small</span>`)
-        $(".stepTh span").css("fontSize", "32px");
-        $(".stepFo").text("4")
+        // $(".stepOn").css({
+        //     "background-color": "#fff",
+        //     "color": "var(--main--color)",
+        // });
+        // $(".stepTw").css({
+        //     "background-color": "#fff",
+        //     "color": "var(--main--color)",
+        // });
+        // $(".stepTh").css({
+        //     "background-color": "#fff",
+        //     "color": "var(--main--color)",
+        // });
+        // $(".stepFo").css({
+        //     "background-color": "var(--main--color)",
+        //     "color": "#fff",
+        // });
+        // $(".step-text").text("준비 완료");
+        // $(".step-text").css("transform", "translateX(240px)");
+        // $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+        // $(".stepOn span").css("fontSize", "32px");
+        // $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+        // $(".stepTw span").css("fontSize", "32px");
+        // $(".stepTh").html(`<span class="material-symbols-outlined">check_small</span>`)
+        // $(".stepTh span").css("fontSize", "32px");
+        // $(".stepFo").text("4")
     }
 }
 
