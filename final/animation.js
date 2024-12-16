@@ -47,9 +47,23 @@ function onHashChange() {
             setTimeout(function () { // 스캔 시작한 척ㅎㅎ
                 window.location.href = "index.html#3"; // 이동할 URL
             }, 5000);
+            $(".stepOn").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("장비 체크");
+            $(".step-text").css("transform", "translateX(0px)");
+            $(".stepOn").text("1");
             break;
         case 3:
             console.log("Case 3: 애니메이션 3 시작");
+            $(".stepOn").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("장비 체크");
+            $(".step-text").css("transform", "translateX(0px)");
+            $(".stepOn").text("1");
             break;
         case 4:
             console.log("Case 4: 애니메이션 4 시작");
@@ -117,25 +131,139 @@ function onHashChange() {
             break;
         case 8:
             console.log("Case 8: 애니메이션 8 시작");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("자세 학습");
+            $(".step-text").css("transform", "translateX(160px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").text("3")
             break;
         case 9:
             console.log("Case 9: 애니메이션 9 시작");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("자세 학습");
+            $(".step-text").css("transform", "translateX(160px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").text("3")
             break;
         case 10:
             console.log("Case 10: 애니메이션 10 시작");
             $("#next-btn").text("건너뛰기");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("자세 학습");
+            $(".step-text").css("transform", "translateX(160px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").text("3")
             break;
         case 11:
             console.log("Case 11: 애니메이션 11 시작");
             $("#next-btn").text("건너뛰기");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("자세 학습");
+            $(".step-text").css("transform", "translateX(160px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").text("3")
             break;
         case 12:
             console.log("Case 12: 애니메이션 12 시작");
             $("#next-btn").text("다음");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("자세 학습");
+            $(".step-text").css("transform", "translateX(160px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").text("3")
             break;
         case 13:
             console.log("Case 13: 애니메이션 13 시작");
             $("#next-btn").text("건너뛰기");
+            $(".stepOn").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTw").css({
+                "background-color": "#fff",
+                "color": "var(--main--color)",
+            });
+            $(".stepTh").css({
+                "background-color": "var(--main--color)",
+                "color": "#fff",
+            });
+            $(".step-text").text("자세 학습");
+            $(".step-text").css("transform", "translateX(160px)");
+            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepOn span").css("fontSize", "32px");
+            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+            $(".stepTw span").css("fontSize", "32px");
+            $(".stepTh").text("3")
             break;
         case 14:
             console.log("Case 14: 애니메이션 14 시작");
