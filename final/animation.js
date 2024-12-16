@@ -47,6 +47,7 @@ function onHashChange() {
             setTimeout(function () { // 스캔 시작한 척ㅎㅎ
                 window.location.href = "index.html#3"; // 이동할 URL
             }, 5000);
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "var(--main--color)",
                 "color": "#fff",
@@ -57,6 +58,7 @@ function onHashChange() {
             break;
         case 3:
             console.log("Case 3: 애니메이션 3 시작");
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "var(--main--color)",
                 "color": "#fff",
@@ -67,6 +69,7 @@ function onHashChange() {
             break;
         case 4:
             console.log("Case 4: 애니메이션 4 시작");
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "var(--main--color)",
                 "color": "#fff",
@@ -77,6 +80,7 @@ function onHashChange() {
             break;
         case 5:
             console.log("Case 5: 애니메이션 5 시작");
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
@@ -93,6 +97,7 @@ function onHashChange() {
             break;
         case 6:
             console.log("Case 6: 애니메이션 6 시작");
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
@@ -109,6 +114,7 @@ function onHashChange() {
             break;
         case 7:
             console.log("Case 7: 애니메이션 7 시작");
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
@@ -131,6 +137,7 @@ function onHashChange() {
             break;
         case 8:
             console.log("Case 8: 애니메이션 8 시작");
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
@@ -153,6 +160,7 @@ function onHashChange() {
             break;
         case 9:
             console.log("Case 9: 애니메이션 9 시작");
+            $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
@@ -195,6 +203,9 @@ function onHashChange() {
             $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
             $(".stepTw span").css("fontSize", "32px");
             $(".stepTh").text("3")
+
+            // $('.guide-img').addClass('fade-in');
+            
             break;
         case 11:
             console.log("Case 11: 애니메이션 11 시작");
@@ -240,7 +251,8 @@ function onHashChange() {
             $(".stepOn span").css("fontSize", "32px");
             $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
             $(".stepTw span").css("fontSize", "32px");
-            $(".stepTh").text("3")
+            $(".stepTh").text("3");
+            $('.guide-img').removeClass('fade-in')
             break;
         case 13:
             console.log("Case 13: 애니메이션 13 시작");
@@ -264,6 +276,7 @@ function onHashChange() {
             $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
             $(".stepTw span").css("fontSize", "32px");
             $(".stepTh").text("3")
+            $('.guide-img').addClass('fade-in');
             break;
         case 14:
             console.log("Case 14: 애니메이션 14 시작");

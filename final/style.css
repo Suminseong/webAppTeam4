@@ -1567,7 +1567,20 @@ footer {
     }
 }
 
+/*등산 자세 이미지 투명도*/
+
+.guide-img {
+    opacity: 0.6; /* 초기 opacity */
+    transition: opacity 10s ease-in-out; /* 2초 동안 opacity 변화 */
+}
+img.fade-in {
+    opacity: 1; /* 최종 opacity */
+}
+
+
 /* 등산 자세 가이드 */
+
+
 
 #img1H{
             

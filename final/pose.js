@@ -33,6 +33,26 @@ function handlePageChange() {
     }
 }
 
+function updateGuideImgClass() {
+    const currentHash = window.location.hash.replace("#", "") || "0";
+    const currentIndex = parseInt(currentHash, 10);
+    const guideImgs = document.querySelectorAll(".guide-img");
+
+    guideImgs.forEach(img => {
+        if (currentIndex === 10 || currentIndex === 13) {
+            img.classList.add("fade-in"); // 해시값이 10 또는 13일 경우 클래스 추가
+        } else {
+            img.classList.remove("fade-in"); // 그렇지 않을 경우 클래스 제거
+        }
+    });
+}
+
+// hashchange 이벤트 리스너에 연결
+window.addEventListener("hashchange", updateGuideImgClass);
+
+// 페이지 로드 시 초기 실행
+document.addEventListener("DOMContentLoaded", updateGuideImgClass);
+
 async function init() {
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
@@ -41,6 +61,7 @@ async function init() {
         // 모델 로드
         model = await tmPose.load(modelURL, metadataURL);
         console.log("모델이 성공적으로 로드되었습니다.");
+
     } catch (error) {
         console.error("모델 로드 중 오류가 발생했습니다:", error);
         return;
