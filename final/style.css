@@ -1573,10 +1573,14 @@ footer {
 .guide-img {
     opacity: 0.6; /* 초기 opacity */
     transition: opacity 10s ease-in-out; /* 2초 동안 opacity 변화 */
-    
+    transform: scaleX(-1);
 }
 img.fade-in {
     opacity: 1; /* 최종 opacity */
+}
+
+.ggimg {
+    transform: scaleX(-1);
 }
 
 
