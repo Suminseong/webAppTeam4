@@ -1678,3 +1678,11 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+.keep {
+    position: absolute;
+    left: 67%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    scale: 2;
+}
