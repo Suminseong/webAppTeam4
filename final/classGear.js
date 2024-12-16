@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 모델 URL. canvas 1~3 순서임!
     const modelURLs = [
         'https://teachablemachine.withgoogle.com/models/Y0XtcXWKz/', // 스틱 모델 stick-true, stick-false, nothing
-        'https://teachablemachine.withgoogle.com/models/Tba8Oy801/', // 가방 모델 bag-true, bag-false, nothing
-        'https://teachablemachine.withgoogle.com/models/JqI_zv0kw/'  // 신발 모델 shoes-true, shoes-false, nothing
+        'https://teachablemachine.withgoogle.com/models/yoZWvbjdZ/', // 가방 모델 bag-true, bag-false, nothing
+        'https://teachablemachine.withgoogle.com/models/BZeQs5E7-/'  // 신발 모델 shoes-true, shoes-false, nothing
     ];
 
     let models = [];
@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
     // 카메라 해상도에 따라 가변적이니까 하드웨어 폰캠 따라서 잘 노가다 뛰세요^^
     const canvasAreas = [
-        { x: 200, y: 160, width: 210, height: 200 }, // canvas1
+        { x: 210, y: 172, width: 210, height: 250 }, // canvas1
         { x: 200, y: 90, width: 240, height: 180 }, // canvas2
-        { x: 190, y: 250, width: 200, height: 260 }  // canvas3
+        { x: 190, y: 280, width: 190, height: 190 }  // canvas3
     ];
 
     if (window.currentIndex > 3) {
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 stopClassification(); // 분류 멈춤
                 stopWebcam();         // 웹캠 멈춤
-            }, 7000); // 7초 뒤 실행
+            }, 6000); // 10초 뒤 실행
         }
         else {
             return;

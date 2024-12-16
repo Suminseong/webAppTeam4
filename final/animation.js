@@ -46,7 +46,7 @@ function onHashChange() {
             // $("#next-btn").text("건너뛰기");
             setTimeout(function () { // 스캔 시작한 척ㅎㅎ
                 window.location.href = "index.html#3"; // 이동할 URL
-            }, 5000);
+            }, 12000);
             $("#next-btn").text("다음");
             $(".stepOn").css({
                 "background-color": "var(--main--color)",

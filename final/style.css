@@ -166,7 +166,7 @@ footer {
     position: absolute;
     top: 600px;
     /* left: 600px; */
-    z-index: 100000;
+    z-index: -1;
 }
 
 .guide {
@@ -193,7 +193,7 @@ footer {
     animation-duration: 5.5s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    
+   
 }
 
 @keyframes scaning {
