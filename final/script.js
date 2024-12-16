@@ -3,6 +3,7 @@ $(document).ready(function () {
     const sectionWidth = 1080; // 섹션 너비
     window.currentIndex = 0; // 현재 섹션 인덱스   
 
+    
 
     // 섹션 이동 함수
     function moveToSection(index) {
