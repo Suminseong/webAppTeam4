@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../classAction.js"></script>
-    <title>Document</title>
+    <title>등산스틱X</title>
     <style>
         * {
             padding: 0;
@@ -64,6 +64,7 @@
             overflow: hidden;
             background-color: #FBF7EC;
             border-radius: 30px;
+            
         }
 
         img {
@@ -195,7 +196,7 @@
         }
 
         #img5subC {
-
+            z-index: 2;
             transform-origin: 50% 1710px;
             animation: i5subC 2.2s linear;
             transform: perspective(100px);
@@ -223,8 +224,16 @@
             }
         }
 
-        #img6subC {
+        footer{
+            z-index: 999;
+        }
 
+        #img6subC {
+            z-index: 1;
+            scale: 1.1;
+            position: absolute;
+            margin-left: -264px;
+            margin-bottom: 240px;
             transform-origin: 50% 1710px;
             animation: i6subC 2.1s linear forwards;
             transform: perspective(100px);
@@ -274,6 +283,7 @@
             gap: 24px;
             align-items: center;
             justify-content: center;
+            z-index: 999;
         }
 
         button {
@@ -330,7 +340,7 @@
         <img id="img3subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 나무1.png">
         <img id="img4subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 나무2.png">
         <img id="img5subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 강1.png">
-        <img id="img6subC" src="/final/animation/웹기초 이미지/등산 스틱 없어요 사람1.png">
+        <img id="img6subC" src="/final/Img/con-subC/stickMP1.gif">
         <div class="bottom">
             <button id="btn1">이전</button>
             <button id="btn2">다음</button>
