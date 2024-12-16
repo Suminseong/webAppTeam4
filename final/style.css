@@ -159,7 +159,48 @@ footer {
     position: absolute;
     top: 600px;
     /* left: 600px; */
-    z-index: 100000;
+    z-index: -1;
+}
+
+.guide {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    width: 128px;
+    z-index: 99;
+}
+
+.scan-shadow {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #00FF55;
+    z-index: 999;
+    width: 320px;
+    height: 1px;
+    box-shadow: 0px 0px 32px 8px #00FF55;
+    animation-name: scaning;
+    animation-duration: 5.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scaning {
+    0%{
+        top: 30%;
+    }
+
+    50% {
+        top: 90%;
+    }
+
+    100%{
+        top: 30%;
+    }
+    
 }
 
 /* footer 버튼 스타일 */
