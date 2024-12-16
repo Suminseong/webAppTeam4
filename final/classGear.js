@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 모델 URL. canvas 1~3 순서임!
     const modelURLs = [
-        'https://teachablemachine.withgoogle.com/models/Pms5gnks6/', // 스틱 모델 stick-true, stick-false, nothing
-        'https://teachablemachine.withgoogle.com/models/gxoDba7iI/', // 가방 모델 bag-true, bag-false, nothing
-        'https://teachablemachine.withgoogle.com/models/Gn6BtNLwK/'  // 신발 모델 shoes-true, shoes-false, nothing
+        'https://teachablemachine.withgoogle.com/models/Y0XtcXWKz/', // 스틱 모델 stick-true, stick-false, nothing
+        'https://teachablemachine.withgoogle.com/models/Tba8Oy801/', // 가방 모델 bag-true, bag-false, nothing
+        'https://teachablemachine.withgoogle.com/models/JqI_zv0kw/'  // 신발 모델 shoes-true, shoes-false, nothing
     ];
 
     let models = [];
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
     // 카메라 해상도에 따라 가변적이니까 하드웨어 폰캠 따라서 잘 노가다 뛰세요^^
     const canvasAreas = [
-        { x: 200, y: 160, width: 240, height: 200 }, // canvas1
-        { x: 200, y: 130, width: 240, height: 240 }, // canvas2
+        { x: 200, y: 160, width: 210, height: 200 }, // canvas1
+        { x: 200, y: 90, width: 240, height: 180 }, // canvas2
         { x: 190, y: 250, width: 200, height: 260 }  // canvas3
     ];
 

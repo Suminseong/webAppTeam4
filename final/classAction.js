@@ -21,7 +21,7 @@ $(document).ready(function () {
             window.location.href = nextPage + query;
         } else {
             console.log("All alert pages displayed.");
-            location.href = '/final/index.html#4';
+            location.href = '/final/animation/대여소.html';
         }
     }
 
