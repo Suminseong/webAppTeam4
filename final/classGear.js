@@ -120,6 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         classifyFrame(canvas3, models[2], 'result3');
     }
 
+
+
     // 분류 수행
     async function classifyFrame(canvas, model, resultElementId) {
         if (currentIndex == 2) {
@@ -160,16 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function handleResults(results) { 
+    function handleResults(results) {
         const keyToLabel = { ///result1,2,3을 라벨링하고 긁어오게
             result1: 'stick',
             result2: 'bag',
             result3: 'shoes'
         };
 
-        //페이지 이동 처리는 classAction에서 수행하니까 여기서 이상한거 건들면 안되비낟!
-
-        const pages = []; //페이지 순서대로 들어갈 배열
+        const pages = []; // 페이지 순서대로 들어갈 배열
         const resultKeys = Object.keys(results);
 
         for (const key of resultKeys) {
@@ -182,15 +182,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'animation/classify_error.html';
                 return;
             } else if (currentValue === expectedFalse) {
-                pages.push(`${label}_alert.html`); //없다면 신발/가방/스틱_alert.html 배열로 넣기
+                pages.push(`${label}_alert.html`); // 없으면 신발/가방/스틱_alert.html 배열로 넣기
             }
         }
 
+        // courseDifficult 설정
+        let courseDifficult = "easy"; // 기본 값은 'easy'
+        if (pages.length === 0) {
+            courseDifficult = "hard"; // pages 배열이 비어 있으면 hard
+        } else if (pages.includes("stick_alert.html") || pages.includes("bag_alert.html")) {
+            courseDifficult = "normal"; // stick_alert.html 또는 bag_alert.html이 포함되면 normal
+        }
+
+        console.log(`courseDifficult determined as: ${courseDifficult}`);
+
+        // URL에 courseDifficult 저장
+        const urlParams = new URLSearchParams();
+        urlParams.set("courseDifficult", courseDifficult);
+        const currentUrl = new URL(window.location.href); // 현재 페이지 URL 가져오기
+        currentUrl.search = urlParams.toString(); // 쿼리 파라미터 추가
+        window.history.replaceState({}, '', currentUrl); // 브라우저 히스토리 업데이트
+
+        // 결과 처리
         if (pages.length > 0) {
             console.log('미착용 장비가 식별되었습니다');
-            window.startPageSequence(pages); //페이지 넘기기 시작
+            window.startPageSequence(pages); // 페이지 넘기기 시작
         } else {
-            console.log('모두 참. 페이지 이동 없음.');
+            location.href = 'index2.html';
+        }
+    }
+
+
+    function stopWebcam() {
+        if (webcamElement.srcObject) {
+            // 웹캠의 모든 트랙 (stream)을 정지합니다.
+            webcamElement.srcObject.getTracks().forEach(track => track.stop());
+            webcamElement.srcObject = null; // 스트림을 제거
+            console.log('Webcam stopped successfully.');
+        } else {
+            console.log('No webcam stream to stop.');
         }
     }
 
