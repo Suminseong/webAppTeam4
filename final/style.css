@@ -174,7 +174,7 @@ footer {
 
 .scan-shadow {
     position: absolute;
-    top: 30%;
+    top: 32%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #00FF55;
@@ -190,7 +190,7 @@ footer {
 
 @keyframes scaning {
     0%{
-        top: 30%;
+        top: 32%;
     }
 
     50% {
@@ -198,7 +198,7 @@ footer {
     }
 
     100%{
-        top: 30%;
+        top: 32%;
     }
     
 }
