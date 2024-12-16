@@ -11,7 +11,7 @@ function getCurrentIndexFromURL() {
     return 0; // 기본값
 }
 
-// 해시 변경 이벤트 핸들러
+// currentIndex 마다 개별로 돌아가는 이벤트 핸들러
 
 function onHashChange() {
     currentIndex = getCurrentIndexFromURL();
@@ -42,6 +42,10 @@ function onHashChange() {
             break;
         case 2:
             console.log("Case 2: 애니메이션 2 시작");
+            // $("#next-btn").text("건너뛰기");
+            setTimeout(function () {
+                window.location.href = "index.html#3"; // 이동할 URL
+            }, 5000);
             break;
         case 3:
             console.log("Case 3: 애니메이션 3 시작");
@@ -118,18 +122,22 @@ function onHashChange() {
             break;
         case 10:
             console.log("Case 10: 애니메이션 10 시작");
+            $("#next-btn").text("건너뛰기")
             break;
         case 11:
             console.log("Case 11: 애니메이션 11 시작");
+            $("#next-btn").text("건너뛰기")
             break;
         case 12:
             console.log("Case 12: 애니메이션 12 시작");
             break;
         case 13:
             console.log("Case 13: 애니메이션 13 시작");
+            $("#next-btn").text("건너뛰기")
             break;
         case 14:
             console.log("Case 14: 애니메이션 14 시작");
+            $("#next-btn").text("건너뛰기")
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
@@ -152,6 +160,7 @@ function onHashChange() {
             break;
         case 15:
             console.log("Case 15: 마지막 애니메이션");
+            $("#next-btn").text("처음으로")
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
