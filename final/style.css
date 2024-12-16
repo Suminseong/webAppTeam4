@@ -171,9 +171,9 @@ footer {
 
 .guide {
     position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 63%;
+    left: 30%;
+    transform: scaleX(-1) translate(-50%, -50%);
     object-fit: contain;
     width: 128px;
     z-index: 99;
@@ -182,7 +182,7 @@ footer {
 .scan-shadow {
     position: absolute;
     top: 32%;
-    left: 50%;
+    left: 44%;
     transform: translate(-50%, -50%);
     background: #00FF55;
     z-index: 999;
@@ -193,6 +193,7 @@ footer {
     animation-duration: 5.5s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    
 }
 
 @keyframes scaning {
@@ -1572,6 +1573,7 @@ footer {
 .guide-img {
     opacity: 0.6; /* 초기 opacity */
     transition: opacity 10s ease-in-out; /* 2초 동안 opacity 변화 */
+    
 }
 img.fade-in {
     opacity: 1; /* 최종 opacity */
