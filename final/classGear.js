@@ -186,22 +186,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // courseDifficult 설정
-        let courseDifficult = "easy"; // 기본 값은 'easy'
-        if (pages.length === 0) {
-            courseDifficult = "hard"; // pages 배열이 비어 있으면 hard
-        } else if (pages.includes("stick_alert.html") || pages.includes("bag_alert.html")) {
-            courseDifficult = "normal"; // stick_alert.html 또는 bag_alert.html이 포함되면 normal
-        }
+        // // 코스 난이도 전달 설정
+        // let courseDifficult = "easy"; // 기본 값은 'easy'
+        // if (pages.length === 0) {
+        //     courseDifficult = "hard"; // pages 배열이 비어 있으면 hard
+        // } else if (pages.includes("stick_alert.html") || pages.includes("bag_alert.html")) {
+        //     courseDifficult = "normal"; // stick_alert.html 또는 bag_alert.html이 포함되면 normal
+        // }
 
-        console.log(`courseDifficult determined as: ${courseDifficult}`);
+        // console.log(`courseDifficult determined as: ${courseDifficult}`);
 
-        // URL에 courseDifficult 저장
-        const urlParams = new URLSearchParams();
-        urlParams.set("courseDifficult", courseDifficult);
-        const currentUrl = new URL(window.location.href); // 현재 페이지 URL 가져오기
-        currentUrl.search = urlParams.toString(); // 쿼리 파라미터 추가
-        window.history.replaceState({}, '', currentUrl); // 브라우저 히스토리 업데이트
+        // // URL에 courseDifficult 저장
+        // const urlParams = new URLSearchParams();
+        // urlParams.set("courseDifficult", courseDifficult);
+        // const currentUrl = new URL(window.location.href); // 현재 페이지 URL 가져오기
+        // currentUrl.search = urlParams.toString(); // 쿼리 파라미터 추가
+        // window.history.replaceState({}, '', currentUrl); // 브라우저 히스토리 업데이트
+
+        // 구현 우선도 낮아 제외
 
         // 결과 처리
         if (pages.length > 0) {

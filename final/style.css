@@ -18,10 +18,10 @@
 
 .material-symbols-outlined {
     font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
 }
 
 a {
@@ -49,7 +49,7 @@ li {
     gap: 36px;
 }
 
-.step-wrap li{
+.step-wrap li {
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -93,7 +93,7 @@ body {
 
 /* 키오스크 프레임 */
 
-#frame{
+#frame {
     width: 1080px;
     height: 1920px;
     margin: 0 auto;
@@ -117,7 +117,7 @@ header {
     z-index: 999;
 }
 
-header > img {
+header>img {
     width: 334px;
     object-fit: contain;
 }
@@ -150,13 +150,13 @@ footer {
     display: none;
 }
 
-.webcam video{
+.webcam video {
     margin-top: 350px;
     border-radius: 24px;
     overflow: hidden;
 }
 
-#webcamGear{
+#webcamGear {
     margin-top: 85px;
     border-radius: 24px;
     overflow: hidden;
@@ -193,11 +193,11 @@ footer {
     animation-duration: 5.5s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-   
+
 }
 
 @keyframes scaning {
-    0%{
+    0% {
         top: 32%;
     }
 
@@ -205,10 +205,10 @@ footer {
         top: 90%;
     }
 
-    100%{
+    100% {
         top: 32%;
     }
-    
+
 }
 
 /* footer 버튼 스타일 */
@@ -241,11 +241,11 @@ footer {
     display: none;
 }
 
-#language-btn-wrap{
+#language-btn-wrap {
     display: block;
 }
 
-#language-btn-wrap button{
+#language-btn-wrap button {
     width: 220px;
     height: 132px;
     letter-spacing: 3%;
@@ -257,15 +257,15 @@ footer {
     margin: 0 auto;
 }
 
-#language-btn-wrap button:nth-child(1){
+#language-btn-wrap button:nth-child(1) {
     margin-right: 8px;
 }
 
-#language-btn-wrap button:nth-child(2){
+#language-btn-wrap button:nth-child(2) {
     margin-right: 8px;
 }
 
-#language-btn-wrap button:nth-child(3){
+#language-btn-wrap button:nth-child(3) {
     margin-right: 8px;
 }
 
@@ -277,16 +277,23 @@ footer {
 
 /* section wrap */
 .section-wrap {
-    height: calc(1920px - 210px - 120px); /* Frame 높이에 맞춤 */
-    width: 1080px; /* Frame 너비 */
-    display: flex; /* 섹션을 가로로 배치 */
-    transition: transform 0.5s ease; /* 부드러운 이동 효과 */
+    height: calc(1920px - 210px - 120px);
+    /* Frame 높이에 맞춤 */
+    width: 1080px;
+    /* Frame 너비 */
+    display: flex;
+    /* 섹션을 가로로 배치 */
+    transition: transform 0.5s ease;
+    /* 부드러운 이동 효과 */
 }
 
 .section-wrap section {
-    flex-shrink: 0; /* 섹션 크기 유지 */
-    width: 1080px; /* 각 섹션의 너비 */
-    height: 100%; /* 부모 높이에 맞춤 */
+    flex-shrink: 0;
+    /* 섹션 크기 유지 */
+    width: 1080px;
+    /* 각 섹션의 너비 */
+    height: 100%;
+    /* 부모 높이에 맞춤 */
     z-index: 10;
     padding: 0px 80px;
     position: relative;
@@ -346,7 +353,7 @@ footer {
     fill: white;
 }
 
-.conA-title-wrap{
+.conA-title-wrap {
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -357,16 +364,16 @@ footer {
 }
 
 @keyframes title {
-    0%{
+    0% {
         transform: translateX(730px);
         opacity: 0;
     }
 
-    100%{
+    100% {
         transform: translateX(0px);
         opacity: 1;
     }
-    
+
 }
 
 #title {
@@ -396,7 +403,25 @@ footer {
 
 /* conB 스타일 */
 
-#conB, #conC, #conD, #conE, #conF, #conG, #conH, #conI, #conJ, #conK, #conL, #conM, #conN, #conO, #conP, #con-subA, #con-subB, #con-subC, #con-subD {
+#conB,
+#conC,
+#conD,
+#conE,
+#conF,
+#conG,
+#conH,
+#conI,
+#conJ,
+#conK,
+#conL,
+#conM,
+#conN,
+#conO,
+#conP,
+#con-subA,
+#con-subB,
+#con-subC,
+#con-subD {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -405,7 +430,7 @@ footer {
 
 
 /* 컨텐츠 전체 메인 텍스트 스타일 */
-.con-text-wrap{
+.con-text-wrap {
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -415,7 +440,7 @@ footer {
     left: 80px;
 }
 
-.con-title-text{
+.con-title-text {
     font-size: 80px;
     font-weight: 800;
     line-height: 92px;
@@ -424,7 +449,7 @@ footer {
     animation: context 1.2s 1 ease-in-out both;
 }
 
-.con-sub-text{
+.con-sub-text {
     font-size: 48px;
     line-height: 64px;
     font-weight: 500;
@@ -434,16 +459,16 @@ footer {
 }
 
 @keyframes context {
-    0%{
+    0% {
         opacity: 0;
         transform: translateX(-800px);
     }
 
-    100%{
+    100% {
         opacity: 1;
         transform: translateX(0px);
     }
-    
+
 }
 
 #set-btn {
@@ -461,7 +486,7 @@ footer {
 
 /* 이미지 css */
 
-.img-wrap{
+.img-wrap {
     position: absolute;
     left: 0;
     bottom: 0px;
@@ -472,122 +497,144 @@ footer {
 }
 
 
-.img-wrap img{
+.img-wrap img {
     position: absolute;
     bottom: 0px;
 }
 
-#img1A{
-            
+#img1A {
+
     transform-origin: 50% 1710px;
     animation: i1A 2.3s linear;
     transform: perspective(100px);
 }
-@keyframes i1A{
+
+@keyframes i1A {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     50% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img2A{
-    
+
+#img2A {
+
     transform-origin: 50% 1710px;
     animation: i2A 2.44s linear;
     transform: perspective(100px);
 }
-@keyframes i2A{
+
+@keyframes i2A {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     53% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img3A{
-    
+
+#img3A {
+
     transform-origin: 50% 1710px;
     animation: i3A 2.55s linear;
     transform: perspective(100px);
 }
-@keyframes i3A{
+
+@keyframes i3A {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     57% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img4A{
-    
+
+#img4A {
+
     transform-origin: 50% 1710px;
     animation: i4A 2.7s linear;
     transform: perspective(100px);
 }
-@keyframes i4A{
+
+@keyframes i4A {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     60% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img5A{
+
+#img5A {
     top: 480px;
     left: -802px;
     animation: i5A 200s infinite linear;
 }
-@keyframes i5A{
-    0%{
+
+@keyframes i5A {
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         transform: rotate(-360deg);
     }
 }
 
-#backA{
+#backA {
     z-index: -1;
 }
 
@@ -595,7 +642,7 @@ footer {
 
 
 
-#img1B{
+#img1B {
     position: absolute;
     margin-bottom: 140px;
     scale: 1.1;
@@ -603,99 +650,118 @@ footer {
     animation: i1B 1.65s linear;
     transform: perspective(100px);
 }
-@keyframes i1B{
+
+@keyframes i1B {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     50% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
-        bottom: 0px;
-        transform: rotateX(0deg);
-    }
-}
-#img2B{
-    
-    transform-origin: 50% 1710px;
-    animation: i2B 1.9s linear;
-    transform: perspective(100px);
-}
-@keyframes i2B{
-    0% {
-        bottom: 0px;
-        transform: rotateX(270deg);
-    }
-    53% {
-        transform: rotateX(-20deg);
-    }
-    80% {
-        transform: rotateX(10deg);
-    }
-    85% {
-    }
-    100%{
-        bottom: 0px;
-        transform: rotateX(0deg);
-    }
-}
-#img3B{
-    
-    transform-origin: 50% 1710px;
-    animation: i3B 1.95s linear;
-    transform: perspective(100px);
-}
-@keyframes i3B{
-    0% {
-        bottom: 0px;
-        transform: rotateX(270deg);
-    }
-    57% {
-        transform: rotateX(-20deg);
-    }
-    80% {
-        transform: rotateX(10deg);
-    }
-    85% {
-    }
-    100%{
-        bottom: 0px;
-        transform: rotateX(0deg);
-    }
-}
-#img4B{
-    
-    transform-origin: 50% 1710px;
-    animation: i4B 2.1s linear;
-    transform: perspective(100px);
-}
-@keyframes i4B{
-    0% {
-        bottom: 0px;
-        transform: rotateX(270deg);
-    }
-    60% {
-        transform: rotateX(-20deg);
-    }
-    80% {
-        transform: rotateX(10deg);
-    }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
 
-#img1subA{
-            
+#img2B {
+
+    transform-origin: 50% 1710px;
+    animation: i2B 1.9s linear;
+    transform: perspective(100px);
+}
+
+@keyframes i2B {
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+
+    53% {
+        transform: rotateX(-20deg);
+    }
+
+    80% {
+        transform: rotateX(10deg);
+    }
+
+    85% {}
+
+    100% {
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+
+#img3B {
+
+    transform-origin: 50% 1710px;
+    animation: i3B 1.95s linear;
+    transform: perspective(100px);
+}
+
+@keyframes i3B {
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+
+    57% {
+        transform: rotateX(-20deg);
+    }
+
+    80% {
+        transform: rotateX(10deg);
+    }
+
+    85% {}
+
+    100% {
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+
+#img4B {
+
+    transform-origin: 50% 1710px;
+    animation: i4B 2.1s linear;
+    transform: perspective(100px);
+}
+
+@keyframes i4B {
+    0% {
+        bottom: 0px;
+        transform: rotateX(270deg);
+    }
+
+    60% {
+        transform: rotateX(-20deg);
+    }
+
+    80% {
+        transform: rotateX(10deg);
+    }
+
+    85% {}
+
+    100% {
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+
+#img1subA {
+
     transform-origin: 50% 1710px;
     animation: i1subA 1.65s linear;
     transform: perspective(100px);
@@ -703,122 +769,145 @@ footer {
 
 /* 신발 부적합 */
 
-@keyframes i1subA{
+@keyframes i1subA {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     50% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img2subA{
-    
+
+#img2subA {
+
     transform-origin: 50% 1710px;
     animation: i2subA 1.9s linear;
     transform: perspective(100px);
 }
-@keyframes i2subA{
+
+@keyframes i2subA {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     53% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img3subA{
-    
+
+#img3subA {
+
     transform-origin: 50% 1710px;
     animation: i3subA 1.95s linear;
     transform: perspective(100px);
 }
-@keyframes i3subA{
+
+@keyframes i3subA {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     57% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img4subA{
-    
+
+#img4subA {
+
     transform-origin: 50% 1710px;
     animation: i4subA 2.1s linear;
     transform: perspective(100px);
 }
-@keyframes i4subA{
+
+@keyframes i4subA {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     60% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img5subA{
-    
+
+#img5subA {
+
     transform-origin: 50% 1710px;
     animation: i5subA 2.2s linear;
     transform: perspective(100px);
 }
-@keyframes i5subA{
+
+@keyframes i5subA {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     65% {
         transform: rotateX(-20deg);
     }
-    80% {
 
-    }
+    80% {}
+
     85% {
         transform: rotateX(10deg);
     }
-    100%{
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img6subA{
+
+#img6subA {
     position: absolute;
     margin-bottom: 40px;
     scale: 1.2;
@@ -827,21 +916,24 @@ footer {
     transform: perspective(100px);
     transform: rotateX(270deg);
 }
-@keyframes i6subA{
+
+@keyframes i6subA {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     68% {
         transform: rotateX(-20deg);
     }
-    80% {
 
-    }
+    80% {}
+
     85% {
         transform: rotateX(10deg);
     }
-    100%{
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
@@ -849,98 +941,117 @@ footer {
 
 /* 가방 없어요 */
 
-#img1subB{
-            
+#img1subB {
+
     transform-origin: 50% 1710px;
     animation: i1subB 1.8s linear;
     transform: perspective(100px);
 }
-@keyframes i1subB{
+
+@keyframes i1subB {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     50% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img2subB{
-    
+
+#img2subB {
+
     transform-origin: 50% 1710px;
     animation: i2subB 1.9s linear;
     transform: perspective(100px);
 }
-@keyframes i2subB{
+
+@keyframes i2subB {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     53% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img3subB{
-    
+
+#img3subB {
+
     transform-origin: 50% 1710px;
     animation: i3subB 2.05s linear;
     transform: perspective(100px);
 }
-@keyframes i3subB{
+
+@keyframes i3subB {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     57% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img4subB{
-    
+
+#img4subB {
+
     transform-origin: 50% 1710px;
     animation: i4subB 2.2s linear;
     transform: perspective(100px);
 }
-@keyframes i4subB{
+
+@keyframes i4subB {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     60% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
@@ -948,128 +1059,152 @@ footer {
 
 /* 등산 스틱 없어요 */
 
-#img1subC{
-            
+#img1subC {
+
     transform-origin: 50% 1710px;
     animation: i1subC 1.65s linear;
     transform: perspective(100px);
 }
-@keyframes i1subC{
+
+@keyframes i1subC {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     50% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img2subC{
-    
+
+#img2subC {
+
     transform-origin: 50% 1710px;
     animation: i2subC 1.9s linear;
     transform: perspective(100px);
 }
-@keyframes i2subC{
+
+@keyframes i2subC {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     53% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img3subC{
-    
+
+#img3subC {
+
     transform-origin: 50% 1710px;
     animation: i3subC 1.95s linear;
     transform: perspective(100px);
 }
-@keyframes i3subC{
+
+@keyframes i3subC {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     57% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img4subC{
-    
+
+#img4subC {
+
     transform-origin: 50% 1710px;
     animation: i4subC 2.1s linear;
     transform: perspective(100px);
 }
-@keyframes i4subC{
+
+@keyframes i4subC {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     60% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img5subC{
+
+#img5subC {
     z-index: 20;
     transform-origin: 50% 1710px;
     animation: i5subC 2.2s linear;
     transform: perspective(100px);
 }
-@keyframes i5subC{
+
+@keyframes i5subC {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     65% {
         transform: rotateX(-20deg);
     }
-    80% {
 
-    }
+    80% {}
+
     85% {
         transform: rotateX(10deg);
     }
-    100%{
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img6subC{
+
+#img6subC {
     position: absolute;
     margin-left: -240px;
     margin-bottom: 240px;
@@ -1079,21 +1214,24 @@ footer {
     transform: perspective(100px);
     transform: rotateX(270deg);
 }
-@keyframes i6subC{
+
+@keyframes i6subC {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     68% {
         transform: rotateX(-20deg);
     }
-    80% {
 
-    }
+    80% {}
+
     85% {
         transform: rotateX(10deg);
     }
-    100%{
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
@@ -1101,147 +1239,175 @@ footer {
 
 /* 대여소 */
 
-#img1subD{
-            
+#img1subD {
+
     transform-origin: 50% 1710px;
     animation: i1subD 1.7s linear;
     transform: perspective(100px);
 }
-@keyframes i1subD{
+
+@keyframes i1subD {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     50% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
 
 /* 역재생 */
-#backaa{
+#backaa {
     z-index: -1;
 }
 
-#img1aa{
-            
+#img1aa {
+
     transform-origin: 50% 1710px;
     animation: i1aa 2.3s linear forwards;
     animation-delay: 1s;
     transform: perspective(100px);
 }
-@keyframes i1aa{
+
+@keyframes i1aa {
     100% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     53% {
         transform: rotateX(-20deg);
     }
+
     27% {
         transform: rotateX(10deg);
     }
-    0%{
+
+    0% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img2aa{
-    
+
+#img2aa {
+
     transform-origin: 50% 1920px;
     animation: i2aa 2.44s linear forwards;
     animation-delay: 1s;
     transform: perspective(100px);
 }
-@keyframes i2aa{
+
+@keyframes i2aa {
     100% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     55% {
         transform: rotateX(-20deg);
     }
+
     16% {
         transform: rotateX(10deg);
     }
-    0%{
+
+    0% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img3aa{
-    
+
+#img3aa {
+
     transform-origin: 50% 1920px;
     animation: i3aa 2.55s linear forwards;
     animation-delay: 1s;
     transform: perspective(100px);
 }
-@keyframes i3aa{
+
+@keyframes i3aa {
     100% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     59% {
         transform: rotateX(-20deg);
     }
+
     18% {
         transform: rotateX(10deg);
     }
-    0%{
+
+    0% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img4aa{
-    
+
+#img4aa {
+
     transform-origin: 50% 1920px;
     animation: i4aa 2.6s linear forwards;
     animation-delay: 1s;
     transform: perspective(100px);
 }
-@keyframes i4aa{
+
+@keyframes i4aa {
     100% {
         bottom: 0px;
         transform: rotateX(240deg);
     }
+
     63% {
         transform: rotateX(-20deg);
     }
+
     22% {
         transform: rotateX(10deg);
     }
-    0%{
+
+    0% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img5aa{
+
+#img5aa {
     top: 924px;
     left: -802px;
     transform-origin: 50% 1710px;
     animation: i5aa 2.8s linear forwards;
     animation-delay: 1s;
 }
-@keyframes i5aa{
+
+@keyframes i5aa {
     100% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     63% {
         transform: rotateX(-20deg);
     }
+
     22% {
         transform: rotateX(10deg);
     }
-    0%{
+
+    0% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
@@ -1249,7 +1415,13 @@ footer {
 
 /* 로티 성공 */
 
-.circle-progress::before{
+.check1 {
+    position: absolute;
+    top: 40%;
+    margin: 0 auto;
+}
+
+.circle-progress::before {
     content: "";
     position: absolute;
     height: 246px;
@@ -1257,29 +1429,36 @@ footer {
     border-radius: 50%;
     background-color: #FBF7EC;
 }
-#lottie{
+
+#lottie {
     position: absolute;
     left: -60px;
     top: 500px;
-}#checkaa{
+}
+
+#checkaa {
     position: absolute;
     margin: 490px 395px 0;
     z-index: 1;
     animation: check 0.5s ease-in-out;
 }
-@keyframes check{
-    0%{
+
+@keyframes check {
+    0% {
         transform: scale(0, 0);
 
     }
-    62%{
+
+    62% {
         transform: scale(1.2, 1.2);
 
     }
-    86%{
+
+    86% {
         transform: scale(0.85, 0.85);
     }
-    100%{
+
+    100% {
         transform: scale(1, 1);
     }
 }
@@ -1301,7 +1480,7 @@ footer {
     margin-bottom: 24px;
 }
 
-.course-bottom{
+.course-bottom {
     width: 200px;
     height: 102px;
     background-color: #fff;
@@ -1349,7 +1528,7 @@ footer {
     box-shadow: 0px 0px 12px #00000010;
 }
 
-.course-type{
+.course-type {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -1368,14 +1547,14 @@ footer {
 }
 
 @keyframes courseHover {
-    0%{
+    0% {
         transform: translateY(0px);
     }
 
-    100%{
+    100% {
         transform: translateY(-24px);
     }
-    
+
 }
 
 .conF-icon {
@@ -1396,9 +1575,9 @@ footer {
 }
 
 #conF-Atype {
-    
+
     top: 31%;
-    
+
 }
 
 #conF-Btype {
@@ -1417,128 +1596,152 @@ footer {
 
 /* 코스선택. */
 
-#img1G{
-            
+#img1G {
+
     transform-origin: 50% 1710px;
     animation: i1G 1.75s linear;
     transform: perspective(100px);
 }
-@keyframes i1G{
+
+@keyframes i1G {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     50% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img2G{
-    
+
+#img2G {
+
     transform-origin: 50% 1710px;
     animation: i2G 2s linear;
     transform: perspective(100px);
 }
-@keyframes i2G{
+
+@keyframes i2G {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     53% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img3G{
-    
+
+#img3G {
+
     transform-origin: 50% 1710px;
     animation: i3G 2.05s linear;
     transform: perspective(100px);
 }
-@keyframes i3G{
+
+@keyframes i3G {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     57% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img4G{
-    
+
+#img4G {
+
     transform-origin: 50% 1710px;
     animation: i4G 2.2s linear;
     transform: perspective(100px);
 }
-@keyframes i4G{
+
+@keyframes i4G {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     60% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img5G{
-    
+
+#img5G {
+
     transform-origin: 50% 1920px;
     animation: i5G 2.3s linear;
     transform: perspective(100px);
 }
-@keyframes i5G{
+
+@keyframes i5G {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     65% {
         transform: rotateX(-20deg);
     }
-    80% {
 
-    }
+    80% {}
+
     85% {
         transform: rotateX(10deg);
     }
-    100%{
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img6G{
+
+#img6G {
     position: absolute;
     margin-left: 400px;
     margin-bottom: 480px;
@@ -1548,21 +1751,24 @@ footer {
     transform: perspective(100px);
     transform: rotateX(270deg);
 }
-@keyframes i6G{
+
+@keyframes i6G {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     68% {
         transform: rotateX(-20deg);
     }
-    80% {
 
-    }
+    80% {}
+
     85% {
         transform: rotateX(10deg);
     }
-    100%{
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
@@ -1571,12 +1777,16 @@ footer {
 /*등산 자세 이미지 투명도*/
 
 .guide-img {
-    opacity: 0.6; /* 초기 opacity */
-    transition: opacity 10s ease-in-out; /* 2초 동안 opacity 변화 */
+    opacity: 0.6;
+    /* 초기 opacity */
+    transition: opacity 10s ease-in-out;
+    /* 2초 동안 opacity 변화 */
     transform: scaleX(-1);
 }
+
 img.fade-in {
-    opacity: 1; /* 최종 opacity */
+    opacity: 1;
+    /* 최종 opacity */
 }
 
 .ggimg {
@@ -1588,79 +1798,94 @@ img.fade-in {
 
 
 
-#img1H{
-            
+#img1H {
+
     transform-origin: 50% 1710px;
     animation: i1H 1.75s linear;
     transform: perspective(100px);
 }
-@keyframes i1H{
+
+@keyframes i1H {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     50% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img2H{
-    
+
+#img2H {
+
     transform-origin: 50% 1710px;
     animation: i2H 2s linear;
     transform: perspective(100px);
 }
-@keyframes i2H{
+
+@keyframes i2H {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     53% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img3H{
-    
+
+#img3H {
+
     transform-origin: 50% 1710px;
     animation: i3H 2.05s linear;
     transform: perspective(100px);
 }
-@keyframes i3H{
+
+@keyframes i3H {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     57% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }
 }
-#img4H{
+
+#img4H {
     position: absolute;
     margin-bottom: 140px;
     scale: 1.1;
@@ -1668,20 +1893,24 @@ img.fade-in {
     animation: i4H 2.2s linear;
     transform: perspective(100px);
 }
-@keyframes i4H{
+
+@keyframes i4H {
     0% {
         bottom: 0px;
         transform: rotateX(270deg);
     }
+
     60% {
         transform: rotateX(-20deg);
     }
+
     80% {
         transform: rotateX(10deg);
     }
-    85% {
-    }
-    100%{
+
+    85% {}
+
+    100% {
         bottom: 0px;
         transform: rotateX(0deg);
     }

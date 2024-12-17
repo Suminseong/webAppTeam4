@@ -170,6 +170,8 @@ function updateStepUI(currentIndex) {
     }
 }
 
+// 일괄 Animation.js로 비동기 전환 작업 완료.
+
 // **해시 변경 시 호출되는 함수**
 function onHashChange() {
     const currentIndex = getCurrentIndex();
