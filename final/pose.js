@@ -65,8 +65,8 @@ function updateGuideImgClass() {
     const guideImgs = document.querySelectorAll(".guide-img");
 
     guideImgs.forEach(img => {
-        if (currentIndex === 11 || currentIndex === 14) {
-            img.classList.add("fade-in"); // 해시값이 10 또는 13일 경우 클래스 추가
+        if (currentIndex === 10 || currentIndex === 13) {
+            img.classList.add("fade-in"); // 해시값이 10 또는 13일 경우 이미지 점점 선명해지는 클래스 추가
         } else {
             img.classList.remove("fade-in"); // 그렇지 않을 경우 클래스 제거
         }
@@ -90,12 +90,11 @@ async function init() {
         return;
     }
 
-    // 비디오 및 캔버스 설정
     video = document.getElementById("webcam2");
     canvas = document.getElementById("canvas");
 
-    if (!video || !canvas) {
-        console.error("HTML에 <video> 또는 <canvas> 태그가 없습니다.");
+    if (!video || !canvas) { //오류발생시
+        console.error("웹캠 또는 캔버스 영역이 없음.");
         return;
     }
 
