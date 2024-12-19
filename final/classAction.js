@@ -56,7 +56,6 @@ $(document).ready(function () {
     if (queueParam && indexParam) {
         pageQueue = JSON.parse(decodeURIComponent(queueParam)).map(page => ensureAbsolutePath(page));
         currentPageIndex = parseInt(indexParam, 10) || 0;
-        // console.log(`Restored page queue: ${pageQueue}, current index: ${currentPageIndex}`);
     }
 
     // "다음" 버튼 클릭 이벤트 처리

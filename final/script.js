@@ -1,3 +1,11 @@
+/*
+
+언어 : JQuery
+index1 주요 구현부
+
+*/
+
+
 $(document).ready(function () {
     const $sectionWrap = $(".section-wrap"); // 섹션 래퍼
     const sectionWidth = 1080; // 섹션 너비
@@ -26,28 +34,28 @@ $(document).ready(function () {
         }
     }
 
-    // 체크하기 버튼 클릭 시
+    // 체크하기 버튼 클릭
     $("#check-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
             moveToSection(currentIndex + 1);
         }
     });
 
-    //코스 버튼 클릭 시
+    //코스 버튼 클릭
     $("#route-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
             window.location.href = "index2.html#6"
         }
     });
 
-    // 다음 버튼 클릭 시
+    // 다음 버튼 클릭
     $("#next-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
             moveToSection(currentIndex + 1);
         }
     });
 
-    // 이전 버튼 클릭 시
+    // 이전 버튼 클릭
     $("#undo-btn").on("click", function () {
         if (currentIndex > 0) {
             moveToSection(currentIndex - 1);
@@ -63,7 +71,7 @@ $(document).ready(function () {
         }
     });
 
-    // 초기화: 페이지 로드 시 해시 처리
+    // 페이지 해시 값으로 이동
     const initialHash = window.location.hash.replace("#", "");
     const initialIndex = parseInt(initialHash, 10);
     if (!isNaN(initialIndex)) {
@@ -73,7 +81,7 @@ $(document).ready(function () {
     }
 
 
-// **현재 섹션 인덱스 가져오기**
+// 현재 섹션 인덱스 가져오기
 function getCurrentIndex() {
     const hash = window.location.hash.replace("#", "");
     const index = parseInt(hash, 10);

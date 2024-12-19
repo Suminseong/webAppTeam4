@@ -148,7 +148,7 @@ async function predict() {
         const poseUp = prediction.find(p => p.className === "pose-up");
 
         if (currentIndex === 10 && poseDown && poseDown.probability > 0.8 && !poseDownActionCompleted) { //10
-            // Pose-down 감지 시 단 한 번 동작
+            // Pose-down 감지 시 한번만 동작
             console.log("Pose-down 감지됨. 페이지 이동.");
             moveToNextPage();
             poseDownActionCompleted = true; // 동작 제한
@@ -209,7 +209,7 @@ function moveToNextPage() {
     console.log(`페이지 이동: #${nextHash}`);
 }
 
-// 추가 웹캠 초기화 함수
+// 웹캠 초기화
 function initializeWebcam(webcamId) {
     const videoElement = document.getElementById(webcamId);
     if (!videoElement) {
@@ -224,8 +224,6 @@ function initializeWebcam(webcamId) {
             facingMode: "user", // 전면 카메라
         }
     };
-
-    // 웹캠 스트림 설정
     navigator.mediaDevices.getUserMedia(constraints)
         .then((stream) => {
             videoElement.srcObject = stream;

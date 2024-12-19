@@ -256,7 +256,7 @@ function executeClassGear() {
     return;
 }
 
-// 주기적으로 상태 확인 (필요 시 사용)
+// 주기적으로 상태 확인(디버깅)
 setInterval(() => {
     executeClassGear();
 }, 1000);
