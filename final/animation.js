@@ -282,30 +282,7 @@ function onHashChange() {
             break;
         case 14:
             console.log("Case 14: 애니메이션 14 시작");
-            $("#next-btn").text("건너뛰기");
-            $(".stepOn").css({
-                "background-color": "#fff",
-                "color": "var(--main--color)",
-            });
-            $(".stepTw").css({
-                "background-color": "#fff",
-                "color": "var(--main--color)",
-            });
-            $(".stepTh").css({
-                "background-color": "var(--main--color)",
-                "color": "#fff",
-            });
-            $(".step-text").text("자세 학습");
-            $(".step-text").css("transform", "translateX(160px)");
-            $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
-            $(".stepOn span").css("fontSize", "32px");
-            $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
-            $(".stepTw span").css("fontSize", "32px");
-            $(".stepTh").text("3")
-            break;
-        case 15:
-            console.log("Case 15: 마지막 애니메이션");
-            $("#next-btn").text("처음으로")
+            $("#next-btn").text("처음으로");
             $(".stepOn").css({
                 "background-color": "#fff",
                 "color": "var(--main--color)",
@@ -332,6 +309,35 @@ function onHashChange() {
             $(".stepTh span").css("fontSize", "32px");
             $(".stepFo").text("4")
             break;
+        // case 15:
+        //     console.log("Case 15: 마지막 애니메이션");
+            // $("#next-btn").text("처음으로")
+            // $(".stepOn").css({
+            //     "background-color": "#fff",
+            //     "color": "var(--main--color)",
+            // });
+            // $(".stepTw").css({
+            //     "background-color": "#fff",
+            //     "color": "var(--main--color)",
+            // });
+            // $(".stepTh").css({
+            //     "background-color": "#fff",
+            //     "color": "var(--main--color)",
+            // });
+            // $(".stepFo").css({
+            //     "background-color": "var(--main--color)",
+            //     "color": "#fff",
+            // });
+        //     $(".step-text").text("준비 완료");
+        //     $(".step-text").css("transform", "translateX(240px)");
+        //     $(".stepOn").html(`<span class="material-symbols-outlined">check_small</span>`)
+        //     $(".stepOn span").css("fontSize", "32px");
+        //     $(".stepTw").html(`<span class="material-symbols-outlined">check_small</span>`)
+        //     $(".stepTw span").css("fontSize", "32px");
+        //     $(".stepTh").html(`<span class="material-symbols-outlined">check_small</span>`)
+        //     $(".stepTh span").css("fontSize", "32px");
+        //     $(".stepFo").text("4")
+        //     break;
         default:
             console.log("알 수 없는 상태: 기본으로 설정");
             currentIndex = 0;
