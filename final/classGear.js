@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 190, y: 280, width: 190, height: 190 }  // canvas3
     ];
 
-    if (window.currentIndex < 2) { //currentIndex가 2일때가 분류 모델 쓰니까
+    if (window.currentIndex > 3) { //currentIndex가 2일때가 분류 모델 쓰니까
         console.log(`currentIndex is ${window.currentIndex}. Model classification will be disabled.`);
         disableModelFunctionality(); // 분류 기능 비활성화
         return; //초기화 진행 중단
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             isModelActive = true;
         }
-        if (window.currentIndex < 2 || isClassified === 1) {
+        if (window.currentIndex !== 2 || isClassified === 1) {
             console.log(`모델 로드 과정 스킵.. ${window.currentIndex} 인덱스가 2인데 이 코드가 계속 뜬다면? 아시죠?`);
             return;
         }
