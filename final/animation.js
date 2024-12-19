@@ -1,17 +1,19 @@
 
-// URL에서 #n 형식으로 값을 읽어오는 함수
+// URL에서 #n 형식으로 값 읽어오기
 function getCurrentIndexFromURL() {
     const hash = window.location.hash;
     if (hash && hash.startsWith('#')) {
         const index = parseInt(hash.substring(1), 10);
-        if (!isNaN(index) && index >= 0 && index <= 15) {
+        if (!isNaN(index) && index >= 0 && index <= 15) { //!isNaN으로 문자열만 조건 때리게
             return index;
         }
     }
     return 0; // 기본값
 }
 
-// currentIndex 마다 개별로 돌아가는 이벤트 핸들러
+// currentIndex 마다 개별로 돌아가는 이벤트 핸들러들. 
+
+// 인덱스 중간열 삭제는 가능하면 하지 않기
 
 function onHashChange() {
     currentIndex = getCurrentIndexFromURL();

@@ -1,9 +1,10 @@
 /*
 
-모델 웹앱에 구현
+언어 : Vanila JS
+TM 동작하는 영역
 
 */
-/*언어 바닐라 자바스크립트입니다*/
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalId = null; // 분류 타이머 ID 들어갈 자리
     let latestResults = { result1: '', result2: '', result3: '' }; // 마지막 분류 결과 저장
     let isClassified = 0; // 모델 실행 여부 플래그
-    let isModelActive = false;
+    let isModelActive = false; //모델 활성화 여부 검사. 
 
 
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
@@ -35,41 +36,39 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 190, y: 280, width: 190, height: 190 }  // canvas3
     ];
 
-    if (window.currentIndex > 3) {
+    if (window.currentIndex > 3) { //currentIndex가 2일때가 분류 모델 쓰니까
         console.log(`currentIndex is ${window.currentIndex}. Model classification will be disabled.`);
         disableModelFunctionality(); // 분류 기능 비활성화
-        return; // 더 이상의 초기화 진행 중단
+        return; //초기화 진행 중단
     }
 
     function disableModelFunctionality() {
-        console.log('Disabling model functionality.');
+        console.log('모델 중단중.');
 
-        // 분류 루프 중단
         if (intervalId) {
             clearInterval(intervalId);
             intervalId = null;
-            console.log('Classification loop stopped.');
+            console.log('분류 중지됨.');
         }
 
-        // 웹캠 스트림 종료
         if (webcamElement.srcObject) {
             webcamElement.srcObject.getTracks().forEach(track => track.stop());
-            console.log('Webcam stream stopped.');
+            console.log('웹캠 중단 중');
         }
 
-        // 모델 상태 초기화
+        // 모델 상태 초기화. 안하면 분류 다시 못함
         models = [];
         isModelActive = false;
     }
 
-    // 웹캠 시작
+    // 웹캠 켜는 부분
     async function startWebcam() {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             webcamElement.srcObject = stream;
         } catch (err) {
-            alert('웹캠에 접근할 수 없습니다. 웹캠을 확인하세요.');
-            console.error('Error accessing webcam:', err);
+            alert('웹캠 죽음');
+            console.error('웹캠 에러 정보:', err);
         }
     }
 
@@ -82,13 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 models.push(model);
             }
             document.getElementById('loading').style.display = 'none';
-            console.log('Models loaded');
+            console.log('모델이 로드되었습니다');
             isClassified = 0; // 모델이 실행되었음을 표시
 
             isModelActive = true;
         }
         if (window.currentIndex !== 2 || isClassified === 1) {
-            console.log(`Model loading skipped. currentIndex is ${window.currentIndex} or model already classified.`);
+            console.log(`모델 로드 과정 스킵.. ${window.currentIndex} 인덱스가 2인데 이 코드가 계속 뜬다면? 아시죠?`);
             return;
         }
     }
@@ -157,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Classification stopped.');
             console.log('Latest Results:', latestResults);
 
-            // 결과에 따른 페이지 이동 처리
             handleResults(latestResults);
         }
     }
