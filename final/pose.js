@@ -1,3 +1,10 @@
+/*
+
+언어 : Vanila JS
+TM 동작하는 영역
+
+*/
+
 const URL = "https://teachablemachine.withgoogle.com/models/8pEgRT5tp/";
 
 let model, video, ctx, canvas;
@@ -12,7 +19,7 @@ let poseUpActionCompleted = false;
 let poseUpHoldActionCompleted = false; 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 페이지 변경 감지를 위해 hashchange 이벤트 리스너 추가
+    // 페이지 변경 감지용 이벤트 리스너
     window.addEventListener("hashchange", handlePageChange);
 
     // 추가 웹캠 스트림 초기화
@@ -49,8 +56,6 @@ function updateGuideImgClass() {
 
 // hashchange 이벤트 리스너에 연결
 window.addEventListener("hashchange", updateGuideImgClass);
-
-// 페이지 로드 시 초기 실행
 document.addEventListener("DOMContentLoaded", updateGuideImgClass);
 
 async function init() {
@@ -58,7 +63,6 @@ async function init() {
     const metadataURL = URL + "metadata.json";
 
     try {
-        // 모델 로드
         model = await tmPose.load(modelURL, metadataURL);
         console.log("모델이 성공적으로 로드되었습니다.");
 
