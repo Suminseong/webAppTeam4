@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("hashchange", handlePageChange);
 
     // 추가 웹캠 스트림 초기화
-    const webcamIds = ["webcam3", "webcam4", "webcam5"];
+    const webcamIds = ["webcam3", "webcam4"];
     webcamIds.forEach(id => initializeWebcam(id));
 });
 
@@ -165,19 +165,24 @@ async function predict() {
                 consecutivePoseDownCount = 0; // 카운트 초기화
             }
         } 
+
+        // 안쓰게 된 
+
         // else {
         //     // Pose-down 감지 실패 시 카운트 초기화
         //     consecutivePoseDownCount = 0;
         // }
 
-        if (currentIndex === 13 && poseUp && poseUp.probability > 0.8 && !poseUpActionCompleted) { //13
-            // Pose-up 감지 시 단 한 번 동작
-            console.log("Pose-up 감지됨. 페이지 이동.");
-            moveToNextPage();
-            poseUpActionCompleted = true; // 동작 제한
-        }
+        // 안쓰게 된 
 
-        if (currentIndex === 14 && poseUp && poseUp.probability > 0.8) { //14
+        // if (currentIndex === 13 && poseUp && poseUp.probability > 0.8 && !poseUpActionCompleted) { //13
+        //     // Pose-up 감지 시 단 한 번 동작
+        //     console.log("Pose-up 감지됨. 페이지 이동.");
+        //     moveToNextPage();
+        //     poseUpActionCompleted = true; // 동작 제한
+        // }
+
+        if (currentIndex === 13 && poseUp && poseUp.probability > 0.8) { //14
             // 연속 Pose-up 감지 횟수 증가
             consecutivePoseUpCount++;
             console.log(`Pose-up 감지 횟수: ${consecutivePoseUpCount}`);
