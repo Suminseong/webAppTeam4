@@ -104,14 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const area = canvasAreas[index];
 
             // 지정된 범위를 잘라 캔버스에 그리기
+            // 필터 쓰면 안되빈다!
             ctx.drawImage(
                 webcamElement,
                 area.x, area.y, area.width, area.height,
                 0, 0, canvas1.width, canvas1.height      // 캔버스에 맞게 그리기
             );
-            if (index === 0) ctx.filter = 'grayscale(0%)'; //1번 캔버스 필터
-            if (index === 1) ctx.filter = 'sepia(10%)'; //2번 캔버스 필터  
-            if (index === 2) ctx.filter = 'grayscale(10%)'; //3번 캔버스 필터
+            if (index === 0) ctx.filter = 'grayscale(0%)'; //1번 캔버스 필터(구별용)
+            if (index === 1) ctx.filter = 'sepia(0%)'; //2번 캔버스 필터  (구별용)
+            if (index === 2) ctx.filter = 'grayscale(0%)'; //3번 캔버스 필터(구별용)
         });
 
         classifyFrame(canvas1, models[0], 'result1');
@@ -183,25 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 pages.push(`${label}_alert.html`); // 없으면 신발/가방/스틱_alert.html 배열로 넣기
             }
         }
-
-        // // 코스 난이도 전달 설정
-        // let courseDifficult = "easy"; // 기본 값은 'easy'
-        // if (pages.length === 0) {
-        //     courseDifficult = "hard"; // pages 배열이 비어 있으면 hard
-        // } else if (pages.includes("stick_alert.html") || pages.includes("bag_alert.html")) {
-        //     courseDifficult = "normal"; // stick_alert.html 또는 bag_alert.html이 포함되면 normal
-        // }
-
-        // console.log(`courseDifficult determined as: ${courseDifficult}`);
-
-        // // URL에 courseDifficult 저장
-        // const urlParams = new URLSearchParams();
-        // urlParams.set("courseDifficult", courseDifficult);
-        // const currentUrl = new URL(window.location.href); // 현재 페이지 URL 가져오기
-        // currentUrl.search = urlParams.toString(); // 쿼리 파라미터 추가
-        // window.history.replaceState({}, '', currentUrl); // 브라우저 히스토리 업데이트
-
-        // 구현 우선도 낮아 제외
 
         // 결과 처리
         if (pages.length > 0) {
