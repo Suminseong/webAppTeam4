@@ -6,7 +6,6 @@ TM 동작하는 영역
 */
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const webcamElement = document.getElementById('webcam');
     const canvas1 = document.getElementById('canvas1');
@@ -15,15 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 모델 URL. canvas 1~3 순서임!
     const modelURLs = [
-        'https://teachablemachine.withgoogle.com/models/BZeQs5E7-/',// 신발 모델
-        'https://teachablemachine.withgoogle.com/models/yoZWvbjdZ/', // 가방 모델
-        'https://teachablemachine.withgoogle.com/models/Y0XtcXWKz/' // 스틱 모델
+        'https://teachablemachine.withgoogle.com/models/Y0XtcXWKz/', // 스틱 모델 stick-true, stick-false, nothing
+        'https://teachablemachine.withgoogle.com/models/yoZWvbjdZ/', // 가방 모델 bag-true, bag-false, nothing
+        'https://teachablemachine.withgoogle.com/models/BZeQs5E7-/'  // 신발 모델 shoes-true, shoes-false, nothing
     ];
 
     let models = [];
     let classificationInterval = 1000; // ms초마다 분류
     let intervalId = null; // 분류 타이머 ID 들어갈 자리
-    let latestResults = { result3: '', result2: '', result1: '' }; // 마지막 분류 결과 저장
+    let latestResults = { result1: '', result2: '', result3: '' }; // 마지막 분류 결과 저장
     let isClassified = 0; // 모델 실행 여부 플래그
     let isModelActive = false; //모델 활성화 여부 검사. 
 
@@ -31,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
     // 카메라 해상도에 따라 가변적이니까 하드웨어 폰캠 따라서 잘 노가다 뛰세요^^
     const canvasAreas = [
-        { x: 190, y: 280, width: 190, height: 190 }, // canvas1
+        { x: 210, y: 172, width: 210, height: 250 }, // canvas1
         { x: 200, y: 90, width: 240, height: 180 }, // canvas2
-        { x: 210, y: 172, width: 210, height: 250 }  // canvas3
+        { x: 190, y: 280, width: 190, height: 190 }  // canvas3
     ];
 
     if (window.currentIndex > 3) { //currentIndex가 2일때가 분류 모델 쓰니까
@@ -115,9 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (index === 2) ctx.filter = 'grayscale(0%)'; //3번 캔버스 필터(구별용)
         });
 
-        classifyFrame(canvas1, models[0], 'result3');
+        classifyFrame(canvas1, models[0], 'result1');
         classifyFrame(canvas2, models[1], 'result2');
-        classifyFrame(canvas3, models[2], 'result1');
+        classifyFrame(canvas3, models[2], 'result3');
     }
 
 
@@ -129,16 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // console.log(prediction);
             // 가장 높은 확률의 클래스명 가져오기
             const highestPrediction = prediction.reduce((prev, current) =>
-                (prev.probability > current.probability) ? prev : current // 저번의 중간 발표때 접하고 공부해봤던 삼항연산자
-                /*
-                
-                저 부분 혹시나 이해 못할까봐 부연설명을 붙이자면
-                
-                각 모델마다 class 분류를 할 때 확률 비교를 하지요? 이때, class1이 0.1, class2가 0.06, class3이 0.94라고 가정합시다.
-                일단, reduce라는 친구가 배열을 순환합니다. 이제 prev.probably(이전 확률)이 current.probably(지금거 확률)보다 큰지 비교하고요
-                맞으면 삼항연산자 뒤의 prev값을 뱉고, 틀리면 current 값을 뱉습니다. 단 한 줄의 논리연산으로 if문이나 case문을 대체하다니 완전럭키비키
-                
-                */
+                (prev.probability > current.probability) ? prev : current
             );
 
             // 결과 HTML 업데이트
@@ -163,9 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleResults(results) {
         const keyToLabel = { ///result1,2,3을 라벨링하고 긁어오게
-            result1: 'shoes',
+            result1: 'stick',
             result2: 'bag',
-            result3: 'stick'
+            result3: 'shoes'
         };
 
         const pages = []; // 페이지 순서대로 들어갈 배열
@@ -197,22 +187,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function stopWebcam() {
         if (webcamElement.srcObject) {
-            // 웹캠의 모든 트랙 (stream)을 정지합니다.
             webcamElement.srcObject.getTracks().forEach(track => track.stop());
             webcamElement.srcObject = null; // 스트림을 제거
-            console.log('Webcam stopped successfully.');
+            console.log('웹캠 중단.');
         } else {
-            console.log('No webcam stream to stop.');
+            console.log('실행중인 웹캠 없음 예외처리.');
         }
     }
 
     function startCountdown() {
         if (currentIndex == 2) {
-            console.log('Countdown started.');
             setTimeout(() => {
                 stopClassification(); // 분류 멈춤
                 stopWebcam();         // 웹캠 멈춤
-            }, 6000); // 10초 뒤 실행
+            }, 6000); // 6초 뒤 실행
         }
         else {
             return;
@@ -230,11 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function executeClassGear() {
     if (window.currentIndex > 2) { // 특정 값이 아닐 때 실행 중지
-        console.log(`Execution stopped due to currentIndex condition. now index is ${window.currentIndex}`);
+        console.log(`currentIndex값 읽음. 현재 currentIndex값은 ${window.currentIndex}`);
         return;
     }
     // 정상적으로 실행
-    console.log(`Executing classGear.js logic... now index is ${currentIndex}`);
+    // console.log( classGear.js 실행중, currentIndex값 = ${currentIndex}); 디버깅용
     return;
 }
 
