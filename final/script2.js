@@ -1,3 +1,5 @@
+//html2에 쓸 js
+
 let thisIndex = 0;
 $(document).ready(function () {
     const $sectionWrap = $(".section-wrap");
@@ -27,7 +29,7 @@ $(document).ready(function () {
         if (thisIndex > 0) {
             moveToSection(thisIndex - 1);
         } else {
-            window.location.hash = "#0"; // 첫 섹션에서 #0으로 이동
+            window.location.hash = "#0"; // 첫 섹션에서 뒤로가기 #0으로 이동
         }
     });
 
@@ -49,13 +51,11 @@ $(document).ready(function () {
 
     // 코스 선택 기능
     $(".conF-icon").on("click", function () {
-        // 기존 클래스 및 스타일 제거
+        // 코스 속성 제거
         $(".course-type").removeClass("course-action").css("opacity", 0);
         $(".conF-icon").removeClass("course-action");
 
-        // 텍스트와 이미지 변경 대상
-
-        // 클릭한 버튼에 따라 관련 요소 업데이트.
+        // 클릭한 버튼별 코스 띄우기
         if (this.id === "conF-Atype") {
             $(this).addClass("course-action");
             $("#course-easy").addClass("course-action").css({

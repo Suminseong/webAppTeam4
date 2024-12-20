@@ -1,3 +1,11 @@
+/*
+
+언어 : JQuery
+index1 주요 구현부
+
+*/
+
+
 $(document).ready(function () {
     const $sectionWrap = $(".section-wrap"); // 섹션 래퍼
     const sectionWidth = 1080; // 섹션 너비
@@ -26,28 +34,28 @@ $(document).ready(function () {
         }
     }
 
-    // 체크하기 버튼 클릭 시
+    // 체크하기 버튼 클릭
     $("#check-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
             moveToSection(currentIndex + 1);
         }
     });
 
-    //코스 버튼 클릭 시
+    //코스 버튼 클릭
     $("#route-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
             window.location.href = "index2.html#6"
         }
     });
 
-    // 다음 버튼 클릭 시
+    // 다음 버튼 클릭
     $("#next-btn").on("click", function () {
         if (currentIndex < $(".section-wrap section").length - 1) {
             moveToSection(currentIndex + 1);
         }
     });
 
-    // 이전 버튼 클릭 시
+    // 이전 버튼 클릭
     $("#undo-btn").on("click", function () {
         if (currentIndex > 0) {
             moveToSection(currentIndex - 1);
@@ -63,7 +71,7 @@ $(document).ready(function () {
         }
     });
 
-    // 초기화: 페이지 로드 시 해시 처리
+    // 페이지 해시 값으로 이동
     const initialHash = window.location.hash.replace("#", "");
     const initialIndex = parseInt(initialHash, 10);
     if (!isNaN(initialIndex)) {
@@ -73,7 +81,7 @@ $(document).ready(function () {
     }
 
 
-// **현재 섹션 인덱스 가져오기**
+// 현재 섹션 인덱스 가져오기
 function getCurrentIndex() {
     const hash = window.location.hash.replace("#", "");
     const index = parseInt(hash, 10);
@@ -441,7 +449,7 @@ $(window).on("hashchange", function () {
 
 
 $("#language-btn-wrap button").on("click", function () {
-    const lang = $(this).attr("id"); // 클릭된 버튼 ID (언어 코드)
+    const lang = $(this).attr("id"); // 클릭된 버튼 ID (언어 코드)넣기
 
     
 
@@ -453,7 +461,7 @@ $("#language-btn-wrap button").on("click", function () {
             });
         });
 
-        // 언어별 con-sub-text의 scale 조정
+        // 언어별 subtext 조정. 안그러면 깨짐
         if (lang === "en") {
             $(".con-sub-text").css("transform", "scale(0.7)").css("transform-origin", "left top");
         } else if (lang === "jp") {
@@ -473,52 +481,52 @@ $("#language-btn-wrap button").on("click", function () {
 
 
 
-    // 코스 선택 기능
-    $(".conF-icon").on("click", function () {
-        // 기존 클래스 및 스타일 제거
-        $(".course-type").removeClass("course-action").css("opacity", 0);
-        $(".conF-icon").removeClass("course-action");
+    // 코스 선택 기능, script2로 이사감.
+    // $(".conF-icon").on("click", function () {
+    //     // 기존 클래스 및 스타일 제거
+    //     $(".course-type").removeClass("course-action").css("opacity", 0);
+    //     $(".conF-icon").removeClass("course-action");
 
-        // 클릭한 버튼에 따라 관련 요소 업데이트.
-        if (this.id === "conF-Atype") {
-            $(this).addClass("course-action");
-            $("#course-easy").addClass("course-action").css({
-                opacity: 1,
-                transition: "opacity 1s",
-            });
-            $("#conF-km").html("10km (약 3시간 30분 소요)");
-            $("#conF-img").attr("src", "./Img/conG/seonjea.png");
-            $("#bottom-modal").css("opacity", "1");
-            $("#course-level").text("초급");
-            $("#course-level").css("color", "#4ABB74");
-            $("#course-name").text("선재산 코스");
-            $("#course-name").css("color", "#4ABB74");
-        } else if (this.id === "conF-Btype") {
-            $(this).addClass("course-action");
-            $("#course-normal").addClass("course-action").css({
-                opacity: 1,
-                transition: "opacity 1s",
-            });
-            $("#conF-km").html("4.4km (약 2시간 10분 소요)");
-            $("#conF-img").attr("src", "./Img/conG/dongdeasan.png");
-            $("#bottom-modal").css("opacity", "1");
-            $("#course-level").text("중급");
-            $("#course-level").css("color", "#4092D2");
-            $("#course-name").text("동대산 코스");
-            $("#course-name").css("color", "#4092D2");
-        } else if (this.id === "conF-Ctype") {
-            $(this).addClass("course-action");
-            $("#course-hard").addClass("course-action").css({
-                opacity: 1,
-                transition: "opacity 1s",
-            });
-            $("#conF-km").html("13.3km (약 7시간 소요)");
-            $("#conF-img").attr("src", "./Img/conG/sogum.png");
-            $("#bottom-modal").css("opacity", "1");
-            $("#course-level").text("상급");
-            $("#course-level").css("color", "#3F4BDA");
-            $("#course-name").text("소금강산 코스");
-            $("#course-name").css("color", "#3F4BDA");
-        }
-    });
+    //     // 클릭한 버튼에 따라 관련 요소 업데이트.
+    //     if (this.id === "conF-Atype") {
+    //         $(this).addClass("course-action");
+    //         $("#course-easy").addClass("course-action").css({
+    //             opacity: 1,
+    //             transition: "opacity 1s",
+    //         });
+    //         $("#conF-km").html("10km (약 3시간 30분 소요)");
+    //         $("#conF-img").attr("src", "./Img/conG/seonjea.png");
+    //         $("#bottom-modal").css("opacity", "1");
+    //         $("#course-level").text("초급");
+    //         $("#course-level").css("color", "#4ABB74");
+    //         $("#course-name").text("선재산 코스");
+    //         $("#course-name").css("color", "#4ABB74");
+    //     } else if (this.id === "conF-Btype") {
+    //         $(this).addClass("course-action");
+    //         $("#course-normal").addClass("course-action").css({
+    //             opacity: 1,
+    //             transition: "opacity 1s",
+    //         });
+    //         $("#conF-km").html("4.4km (약 2시간 10분 소요)");
+    //         $("#conF-img").attr("src", "./Img/conG/dongdeasan.png");
+    //         $("#bottom-modal").css("opacity", "1");
+    //         $("#course-level").text("중급");
+    //         $("#course-level").css("color", "#4092D2");
+    //         $("#course-name").text("동대산 코스");
+    //         $("#course-name").css("color", "#4092D2");
+    //     } else if (this.id === "conF-Ctype") {
+    //         $(this).addClass("course-action");
+    //         $("#course-hard").addClass("course-action").css({
+    //             opacity: 1,
+    //             transition: "opacity 1s",
+    //         });
+    //         $("#conF-km").html("13.3km (약 7시간 소요)");
+    //         $("#conF-img").attr("src", "./Img/conG/sogum.png");
+    //         $("#bottom-modal").css("opacity", "1");
+    //         $("#course-level").text("상급");
+    //         $("#course-level").css("color", "#3F4BDA");
+    //         $("#course-name").text("소금강산 코스");
+    //         $("#course-name").css("color", "#3F4BDA");
+    //     }
+    // });
 });

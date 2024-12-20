@@ -1,9 +1,10 @@
 /*
 
-모델 웹앱에 구현
+언어 : Vanila JS
+TM 동작하는 영역
 
 */
-/*언어 바닐라 자바스크립트입니다*/
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalId = null; // 분류 타이머 ID 들어갈 자리
     let latestResults = { result1: '', result2: '', result3: '' }; // 마지막 분류 결과 저장
     let isClassified = 0; // 모델 실행 여부 플래그
-    let isModelActive = false;
+    let isModelActive = false; //모델 활성화 여부 검사. 
 
 
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
@@ -35,41 +36,39 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 190, y: 280, width: 190, height: 190 }  // canvas3
     ];
 
-    if (window.currentIndex > 3) {
+    if (window.currentIndex > 3) { //currentIndex가 2일때가 분류 모델 쓰니까
         console.log(`currentIndex is ${window.currentIndex}. Model classification will be disabled.`);
         disableModelFunctionality(); // 분류 기능 비활성화
-        return; // 더 이상의 초기화 진행 중단
+        return; //초기화 진행 중단
     }
 
     function disableModelFunctionality() {
-        console.log('Disabling model functionality.');
+        console.log('모델 중단중.');
 
-        // 분류 루프 중단
         if (intervalId) {
             clearInterval(intervalId);
             intervalId = null;
-            console.log('Classification loop stopped.');
+            console.log('분류 중지됨.');
         }
 
-        // 웹캠 스트림 종료
         if (webcamElement.srcObject) {
             webcamElement.srcObject.getTracks().forEach(track => track.stop());
-            console.log('Webcam stream stopped.');
+            console.log('웹캠 중단 중');
         }
 
-        // 모델 상태 초기화
+        // 모델 상태 초기화. 안하면 분류 다시 못함
         models = [];
         isModelActive = false;
     }
 
-    // 웹캠 시작
+    // 웹캠 켜는 부분
     async function startWebcam() {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             webcamElement.srcObject = stream;
         } catch (err) {
-            alert('웹캠에 접근할 수 없습니다. 웹캠을 확인하세요.');
-            console.error('Error accessing webcam:', err);
+            alert('웹캠 죽음');
+            console.error('웹캠 에러 정보:', err);
         }
     }
 
@@ -82,13 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 models.push(model);
             }
             document.getElementById('loading').style.display = 'none';
-            console.log('Models loaded');
+            console.log('모델이 로드되었습니다');
             isClassified = 0; // 모델이 실행되었음을 표시
 
             isModelActive = true;
         }
         if (window.currentIndex !== 2 || isClassified === 1) {
-            console.log(`Model loading skipped. currentIndex is ${window.currentIndex} or model already classified.`);
+            console.log(`모델 로드 과정 스킵.. ${window.currentIndex} 인덱스가 2인데 이 코드가 계속 뜬다면? 아시죠?`);
             return;
         }
     }
@@ -105,14 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const area = canvasAreas[index];
 
             // 지정된 범위를 잘라 캔버스에 그리기
+            // 필터 쓰면 안되빈다!
             ctx.drawImage(
                 webcamElement,
                 area.x, area.y, area.width, area.height,
                 0, 0, canvas1.width, canvas1.height      // 캔버스에 맞게 그리기
             );
-            if (index === 0) ctx.filter = 'grayscale(0%)'; //1번 캔버스 필터
-            if (index === 1) ctx.filter = 'sepia(10%)'; //2번 캔버스 필터  
-            if (index === 2) ctx.filter = 'grayscale(10%)'; //3번 캔버스 필터
+            if (index === 0) ctx.filter = 'grayscale(0%)'; //1번 캔버스 필터(구별용)
+            if (index === 1) ctx.filter = 'sepia(0%)'; //2번 캔버스 필터  (구별용)
+            if (index === 2) ctx.filter = 'grayscale(0%)'; //3번 캔버스 필터(구별용)
         });
 
         classifyFrame(canvas1, models[0], 'result1');
@@ -157,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Classification stopped.');
             console.log('Latest Results:', latestResults);
 
-            // 결과에 따른 페이지 이동 처리
             handleResults(latestResults);
         }
     }
@@ -186,25 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // // 코스 난이도 전달 설정
-        // let courseDifficult = "easy"; // 기본 값은 'easy'
-        // if (pages.length === 0) {
-        //     courseDifficult = "hard"; // pages 배열이 비어 있으면 hard
-        // } else if (pages.includes("stick_alert.html") || pages.includes("bag_alert.html")) {
-        //     courseDifficult = "normal"; // stick_alert.html 또는 bag_alert.html이 포함되면 normal
-        // }
-
-        // console.log(`courseDifficult determined as: ${courseDifficult}`);
-
-        // // URL에 courseDifficult 저장
-        // const urlParams = new URLSearchParams();
-        // urlParams.set("courseDifficult", courseDifficult);
-        // const currentUrl = new URL(window.location.href); // 현재 페이지 URL 가져오기
-        // currentUrl.search = urlParams.toString(); // 쿼리 파라미터 추가
-        // window.history.replaceState({}, '', currentUrl); // 브라우저 히스토리 업데이트
-
-        // 구현 우선도 낮아 제외
-
         // 결과 처리
         if (pages.length > 0) {
             console.log('미착용 장비가 식별되었습니다');
@@ -217,22 +197,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function stopWebcam() {
         if (webcamElement.srcObject) {
-            // 웹캠의 모든 트랙 (stream)을 정지합니다.
             webcamElement.srcObject.getTracks().forEach(track => track.stop());
             webcamElement.srcObject = null; // 스트림을 제거
-            console.log('Webcam stopped successfully.');
+            console.log('웹캠 중단.');
         } else {
-            console.log('No webcam stream to stop.');
+            console.log('실행중인 웹캠 없음 예외처리.');
         }
     }
 
     function startCountdown() {
         if (currentIndex == 2) {
-            console.log('Countdown started.');
             setTimeout(() => {
                 stopClassification(); // 분류 멈춤
                 stopWebcam();         // 웹캠 멈춤
-            }, 6000); // 10초 뒤 실행
+            }, 6000); // 6초 뒤 실행
         }
         else {
             return;
@@ -250,15 +228,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function executeClassGear() {
     if (window.currentIndex > 2) { // 특정 값이 아닐 때 실행 중지
-        console.log(`Execution stopped due to currentIndex condition. now index is ${window.currentIndex}`);
+        console.log(`currentIndex값 읽음. 현재 currentIndex값은 ${window.currentIndex}`);
         return;
     }
     // 정상적으로 실행
-    console.log(`Executing classGear.js logic... now index is ${currentIndex}`);
+    // console.log(` classGear.js 실행중, currentIndex값 = ${currentIndex}`); 디버깅용
     return;
 }
 
-// 주기적으로 상태 확인 (필요 시 사용)
+// 주기적으로 상태 확인(디버깅)
 setInterval(() => {
     executeClassGear();
 }, 1000);
