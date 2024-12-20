@@ -5,6 +5,15 @@ TM 동작하는 영역
 
 */
 
+const lottieHTML = `
+    <dotlottie-wc class="check1 keep"
+      src="https://lottie.host/34df755d-c38e-4f63-93d1-4ac46eb45692/ymsGhanket.lottie"
+      speed="0.5"></dotlottie-wc>
+  `;
+
+  const webcamContainer2 = document.querySelector('#conO .webcam');
+  const webcamContainer1 = document.querySelector('#conL .webcam');
+
 const URL = "https://teachablemachine.withgoogle.com/models/8pEgRT5tp/";
 
 let model, video, ctx, canvas;
@@ -134,8 +143,6 @@ async function loop() {
         console.error("웹캠 데이터가 충분하지 않습니다.");
     }
 }
-const lottie1 = document.getElementById('lottie1');
-const lottie2 = document.getElementById('lottie2');
 
 async function predict() {
     const { pose, posenetOutput } = await model.estimatePose(canvas);
@@ -159,6 +166,9 @@ async function predict() {
             // 연속 Pose-down 감지 횟수 증가 
             consecutivePoseDownCount++;
             console.log(`Pose-down 감지 횟수: ${consecutivePoseDownCount}`);
+            if (consecutivePoseDownCount > 1 && poseDownHoldActionCompleted) {
+                webcamContainer1.innerHTML = lottieHTML + webcamContainer1.innerHTML;
+            }
             if (consecutivePoseDownCount >= 5 && !poseDownHoldActionCompleted) {
                 console.log("Pose-down 5회 연속 감지됨. 추가 페이지 이동.");
                 moveToNextPage();
@@ -234,3 +244,4 @@ function initializeWebcam(webcamId) {
             console.error(`${webcamId} 웹캠을 열 수 없습니다:`, err.name, err.message);
         });
 }
+
