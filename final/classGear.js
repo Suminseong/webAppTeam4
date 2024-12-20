@@ -163,9 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleResults(results) {
         const keyToLabel = { ///result1,2,3을 라벨링하고 긁어오게
-            result1: 'stick',
+            result1: 'shoes',
             result2: 'bag',
-            result3: 'shoes'
+            result3: 'stick'
         };
 
         const pages = []; // 페이지 순서대로 들어갈 배열
