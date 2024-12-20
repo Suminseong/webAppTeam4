@@ -162,39 +162,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleResults(results) {
-        const keyToLabel = { ///result1,2,3을 라벨링하고 긁어오게
-            result1: 'shoes',
-            result2: 'bag',
-            result3: 'stick'
-        };
-
-        const pages = []; // 페이지 순서대로 들어갈 배열
+        const keyToLabel = { result1: 'stick', result2: 'bag', result3: 'shoes' };
+        const pages = [];
         const resultKeys = Object.keys(results);
-
+    
         for (const key of resultKeys) {
-            const label = keyToLabel[key]; // 매핑 테이블에서 레이블 가져오기
+            const label = keyToLabel[key];
             const expectedFalse = `${label}-false`.trim().toLowerCase();
             const currentValue = results[key].trim().toLowerCase();
-
+    
             console.log(`Key: ${key}, Label: ${label}, Expected: ${expectedFalse}, Current: ${currentValue}`);
+    
             if (currentValue === 'nothing') {
                 window.location.href = 'animation/classify_error.html';
-                return;
-            } else if (currentValue === expectedFalse) {
-                pages.push(`${label}_alert.html`); // 없으면 신발/가방/스틱_alert.html 배열로 넣기
+                return; // 이동 후 종료
+            }
+    
+            if (currentValue === 'shoes-false') {
+                const queue = JSON.stringify(['/final/animation/go_title_error.html']);
+                window.location.href = `animation/대여소.html?index=1&queue=${encodeURIComponent(queue)}`;
+                return; // 이동 후 종료
+            }
+    
+            if (currentValue === expectedFalse) {
+                pages.push(`${label}_alert.html`);
             }
         }
-
-        // 결과 처리
+    
         if (pages.length > 0) {
             console.log('미착용 장비가 식별되었습니다');
-            window.startPageSequence(pages); // 페이지 넘기기 시작
+            window.startPageSequence(pages);
         } else {
             location.href = 'index2.html';
         }
     }
-
-
+    
     function stopWebcam() {
         if (webcamElement.srcObject) {
             webcamElement.srcObject.getTracks().forEach(track => track.stop());
