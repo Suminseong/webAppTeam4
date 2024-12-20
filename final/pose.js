@@ -14,9 +14,9 @@ let poseDownActionCompleted = false; // Pose-down 감지 후 한번 실행 제�
 let poseDownHoldActionCompleted = false; // Pose-down 3회 연속 감지 후 한번 실행 제한
 
 let poseUpDetected = false;
-let consecutivePoseUpCount = 0; 
-let poseUpActionCompleted = false; 
-let poseUpHoldActionCompleted = false; 
+let consecutivePoseUpCount = 0;
+let poseUpActionCompleted = false;
+let poseUpHoldActionCompleted = false;
 
 document.addEventListener("DOMContentLoaded", () => {
     // 페이지 변경 감지용 이벤트 리스너
@@ -134,6 +134,8 @@ async function loop() {
         console.error("웹캠 데이터가 충분하지 않습니다.");
     }
 }
+const lottie1 = document.getElementById('lottie1');
+const lottie2 = document.getElementById('lottie2');
 
 async function predict() {
     const { pose, posenetOutput } = await model.estimatePose(canvas);
@@ -157,13 +159,18 @@ async function predict() {
             // 연속 Pose-down 감지 횟수 증가 
             consecutivePoseDownCount++;
             console.log(`Pose-down 감지 횟수: ${consecutivePoseDownCount}`);
+            if (consecutivePoseDownCount > 1 && !poseDownHoldActionCompleted) { //로티 켜기
+                lottie1.classList.remove('hidden');
+                lottie1.setAttribute('autoplay', '');
+                lottie1.setAttribute('loop', '');
+            }
             if (consecutivePoseDownCount >= 5 && !poseDownHoldActionCompleted) {
                 console.log("Pose-down 5회 연속 감지됨. 추가 페이지 이동.");
                 moveToNextPage();
                 poseDownHoldActionCompleted = true; // 동작 제한
                 consecutivePoseDownCount = 0; // 카운트 초기화
             }
-        } 
+        }
 
         // 안쓰게 된 
 
@@ -185,6 +192,11 @@ async function predict() {
             // 연속 Pose-up 감지 횟수 증가
             consecutivePoseUpCount++;
             console.log(`Pose-up 감지 횟수: ${consecutivePoseUpCount}`);
+            if (consecutivePoseUpCount > 1 && !poseUpHoldActionCompleted) { //로티 켜기
+                lottie2.classList.remove('hidden');
+                lottie2.setAttribute('autoplay', '');
+                lottie2.setAttribute('loop', '');
+            }
             if (consecutivePoseUpCount >= 5 && !poseUpHoldActionCompleted) {
                 console.log("Pose-up 5회 연속 감지됨. 추가 페이지 이동.");
                 moveToNextPage();
