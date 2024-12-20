@@ -15,15 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 모델 URL. canvas 1~3 순서임!
     const modelURLs = [
-        'https://teachablemachine.withgoogle.com/models/Y0XtcXWKz/', // 스틱 모델 stick-true, stick-false, nothing
-        'https://teachablemachine.withgoogle.com/models/yoZWvbjdZ/', // 가방 모델 bag-true, bag-false, nothing
-        'https://teachablemachine.withgoogle.com/models/BZeQs5E7-/'  // 신발 모델 shoes-true, shoes-false, nothing
+        'https://teachablemachine.withgoogle.com/models/BZeQs5E7-/',// 신발 모델
+        'https://teachablemachine.withgoogle.com/models/yoZWvbjdZ/', // 가방 모델
+        'https://teachablemachine.withgoogle.com/models/Y0XtcXWKz/' // 스틱 모델
     ];
 
     let models = [];
     let classificationInterval = 1000; // ms초마다 분류
     let intervalId = null; // 분류 타이머 ID 들어갈 자리
-    let latestResults = { result1: '', result2: '', result3: '' }; // 마지막 분류 결과 저장
+    let latestResults = { result3: '', result2: '', result1: '' }; // 마지막 분류 결과 저장
     let isClassified = 0; // 모델 실행 여부 플래그
     let isModelActive = false; //모델 활성화 여부 검사. 
 
@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 캔버스별 웹캠 범위 설정 (x, y, width, height)
     // 카메라 해상도에 따라 가변적이니까 하드웨어 폰캠 따라서 잘 노가다 뛰세요^^
     const canvasAreas = [
-        { x: 210, y: 172, width: 210, height: 250 }, // canvas1
+        { x: 190, y: 280, width: 190, height: 190 }, // canvas1
         { x: 200, y: 90, width: 240, height: 180 }, // canvas2
-        { x: 190, y: 280, width: 190, height: 190 }  // canvas3
+        { x: 210, y: 172, width: 210, height: 250 }  // canvas3
     ];
 
     if (window.currentIndex > 3) { //currentIndex가 2일때가 분류 모델 쓰니까
@@ -115,9 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (index === 2) ctx.filter = 'grayscale(0%)'; //3번 캔버스 필터(구별용)
         });
 
-        classifyFrame(canvas1, models[0], 'result1');
+        classifyFrame(canvas1, models[0], 'result3');
         classifyFrame(canvas2, models[1], 'result2');
-        classifyFrame(canvas3, models[2], 'result3');
+        classifyFrame(canvas3, models[2], 'result1');
     }
 
 
