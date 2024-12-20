@@ -159,11 +159,6 @@ async function predict() {
             // 연속 Pose-down 감지 횟수 증가 
             consecutivePoseDownCount++;
             console.log(`Pose-down 감지 횟수: ${consecutivePoseDownCount}`);
-            if (consecutivePoseDownCount > 1 && !poseDownHoldActionCompleted) { //로티 켜기
-                lottie1.classList.remove('hidden');
-                lottie1.setAttribute('autoplay', '');
-                lottie1.setAttribute('loop', '');
-            }
             if (consecutivePoseDownCount >= 5 && !poseDownHoldActionCompleted) {
                 console.log("Pose-down 5회 연속 감지됨. 추가 페이지 이동.");
                 moveToNextPage();
@@ -192,11 +187,6 @@ async function predict() {
             // 연속 Pose-up 감지 횟수 증가
             consecutivePoseUpCount++;
             console.log(`Pose-up 감지 횟수: ${consecutivePoseUpCount}`);
-            if (consecutivePoseUpCount > 1 && !poseUpHoldActionCompleted) { //로티 켜기
-                lottie2.classList.remove('hidden');
-                lottie2.setAttribute('autoplay', '');
-                lottie2.setAttribute('loop', '');
-            }
             if (consecutivePoseUpCount >= 5 && !poseUpHoldActionCompleted) {
                 console.log("Pose-up 5회 연속 감지됨. 추가 페이지 이동.");
                 moveToNextPage();
