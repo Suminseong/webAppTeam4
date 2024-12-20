@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     if (window.currentIndex > 3) { //currentIndex가 2일때가 분류 모델 쓰니까
-        console.log(`currentIndex is ${window.currentIndex}. Model classification will be disabled.`);
+        console.log(currentIndex is ${window.currentIndex}. Model classification will be disabled.);
         disableModelFunctionality(); // 분류 기능 비활성화
         return; //초기화 진행 중단
     }
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isModelActive = true;
         }
         if (window.currentIndex !== 2 || isClassified === 1) {
-            console.log(`모델 로드 과정 스킵.. ${window.currentIndex} 인덱스가 2인데 이 코드가 계속 뜬다면? 아시죠?`);
+            console.log(모델 로드 과정 스킵.. ${window.currentIndex} 인덱스가 2인데 이 코드가 계속 뜬다면? 아시죠?);
             return;
         }
     }
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             //결과 저장
             latestResults[resultElementId] = highestPrediction.className;
-            console.log(`${resultElementId}: ${highestPrediction.className}`);
+            console.log(${resultElementId}: ${highestPrediction.className});
         }
     }
 
@@ -162,41 +162,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleResults(results) {
-        const keyToLabel = { result1: 'stick', result2: 'bag', result3: 'shoes' };
-        const pages = [];
+        const keyToLabel = { ///result1,2,3을 라벨링하고 긁어오게
+            result1: 'stick',
+            result2: 'bag',
+            result3: 'shoes'
+        };
+
+        const pages = []; // 페이지 순서대로 들어갈 배열
         const resultKeys = Object.keys(results);
-    
+
         for (const key of resultKeys) {
-            const label = keyToLabel[key];
-            const expectedFalse = `${label}-false`.trim().toLowerCase();
+            const label = keyToLabel[key]; // 매핑 테이블에서 레이블 가져오기
+            const expectedFalse = ${label}-false.trim().toLowerCase();
             const currentValue = results[key].trim().toLowerCase();
-    
-            console.log(`Key: ${key}, Label: ${label}, Expected: ${expectedFalse}, Current: ${currentValue}`);
-    
+
+            console.log(Key: ${key}, Label: ${label}, Expected: ${expectedFalse}, Current: ${currentValue});
             if (currentValue === 'nothing') {
                 window.location.href = 'animation/classify_error.html';
-                return; // 이동 후 종료
+                return;
             }
-    
             if (currentValue === 'shoes-false') {
-                const queue = JSON.stringify(['/final/animation/go_title_error.html']);
-                window.location.href = `animation/대여소.html?index=1&queue=${encodeURIComponent(queue)}`;
-                return; // 이동 후 종료
-            }
-    
-            if (currentValue === expectedFalse) {
-                pages.push(`${label}_alert.html`);
+                windows.location.href = 'animation/대여소.html?index=1&queue=%5B"%2Ffinal%2Fanimation%2Fgo_title_error.html'
+            } 
+            else if (currentValue === expectedFalse) {
+                pages.push(${label}_alert.html); // 없으면 신발/가방/스틱_alert.html 배열로 넣기
             }
         }
-    
+
+        // 결과 처리
         if (pages.length > 0) {
             console.log('미착용 장비가 식별되었습니다');
-            window.startPageSequence(pages);
+            window.startPageSequence(pages); // 페이지 넘기기 시작
         } else {
             location.href = 'index2.html';
         }
     }
-    
+
+
     function stopWebcam() {
         if (webcamElement.srcObject) {
             webcamElement.srcObject.getTracks().forEach(track => track.stop());
@@ -230,11 +232,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function executeClassGear() {
     if (window.currentIndex > 2) { // 특정 값이 아닐 때 실행 중지
-        console.log(`currentIndex값 읽음. 현재 currentIndex값은 ${window.currentIndex}`);
+        console.log(currentIndex값 읽음. 현재 currentIndex값은 ${window.currentIndex});
         return;
     }
     // 정상적으로 실행
-    // console.log(` classGear.js 실행중, currentIndex값 = ${currentIndex}`); 디버깅용
+    // console.log( classGear.js 실행중, currentIndex값 = ${currentIndex}); 디버깅용
     return;
 }
 
