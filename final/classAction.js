@@ -16,15 +16,14 @@ $(document).ready(function () {
         if (path.startsWith('/')) {
             return path; // 이미 루트 경로임
         } else {
-            return /final/animation/${path}; // 경고 링크로 날리기
+            return `/final/animation/${path}`; // 경고 링크로 날리기
         }
     }
 
     //링크 생성하면
-        //bag_alert.html?index=1&queue=%5B"%2Ffinal%2Fanimation%2Fbag_alert.html"%2C"%2Ffinal%2Fanimation%2Fshoes_alert.html"%5D
-        //형태로 나옴.
-
-        //ㄴ{현재페이지링크.html}+{띄워준경고페이지index}+{큐에 들어있는 남은 링크들}
+    //bag_alert.html?index=1&queue=%5B"%2Ffinal%2Fanimation%2Fbag_alert.html"%2C"%2Ffinal%2Fanimation%2Fshoes_alert.html"%5D
+    //형태로 나옴.
+    //ㄴ{현재페이지링크.html}+{띄워준경고페이지index}+{큐에 들어있는 남은 링크들}
 
     // 다음 페이지로 이동. 링크에 들어있는 쿼리 처리하기
     function navigateToNextPage() {
@@ -33,7 +32,7 @@ $(document).ready(function () {
             currentPageIndex++;
 
             //링크 생성
-            const query = ?index=${currentPageIndex}&queue=${encodeURIComponent(JSON.stringify(pageQueue))};
+            const query = `?index=${currentPageIndex}&queue=${encodeURIComponent(JSON.stringify(pageQueue))}`;
             window.location.href = nextPage + query;
         } else {
             // console.log("경고페이지 큐 비었음");
